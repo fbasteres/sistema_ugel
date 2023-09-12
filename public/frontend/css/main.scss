@@ -1,0 +1,10 @@
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+$custom-colors: (
+  "purple":#5b36f2,
+  "background-mpt": #ecf4f9,
+  "whatsapp":#22aa00
+);
+$theme-colors: map-merge($theme-colors, $custom-colors);
+@import "../../../node_modules/bootstrap/scss/bootstrap";
