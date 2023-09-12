@@ -23,11 +23,11 @@ Route::get('/dashboard', function () {
 })-> name ('inicio');
 
 Route::get('/ficha1', function () {
-    return view('fichas.monitoreo.ficha1-1');
+    return view('Fichas.Monitoreo.ficha1-1');
 })-> name ('inicio');
 
 Route::get('/ficha1/rst', function () {
-    return view('fichas.monitoreo.result.ficha1-rst');
+    return view('Fichas.Monitoreo.Result.ficha1-rst');
 })-> name ('inicio');
 
 Route::resource('form1', FormController::class) -> names ('admin.form1');
