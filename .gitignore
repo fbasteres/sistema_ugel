@@ -6,7 +6,16 @@
 /storage/*.key
 #/vendor
 #.env
+.env.example
 .env.backup
+artisan
+composer.json
+composer.lock
+package-lock.json
+package.json
+phpunit.xml
+README.md
+vite.config.js
 .env.production
 .phpunit.result.cache
 Homestead.json
