@@ -1,0 +1,9 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home2/agptarma/public_html/
+    - /bin/cp -R frontend $DEPLOYPATH
+    - /bin/cp  .htaccess $DEPLOYPATH
+    - /bin/cp  favicon.ico $DEPLOYPATH
+    - /bin/cp  index.php $DEPLOYPATH
+    - /bin/cp  robots.txt $DEPLOYPATH
