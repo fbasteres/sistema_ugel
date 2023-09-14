@@ -12,8 +12,8 @@
                 </div>
                 
                 <!-- Login -->
-                <form action="" method="POST" class="login-form">
-                    
+                <form action="{{ route('login') }}" method="POST" class="login-form">
+                    @csrf
         
                     <h5 class="fw-semibold">Conoce tu nuevo portal.</h5>
                     <p class="">Puedes hacer todo lo que necesitas como funcionario. Revisa tus horarios, eventos, trámites y más. De manera más fácil y sencilla.</p>

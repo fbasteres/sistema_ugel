@@ -59,7 +59,7 @@ body {
 
 @media screen and (max-width:988px){
     .fondo {
-        padding: 0px 5rem 0px 5rem;
+        padding: 0px 1rem 0px 1rem;
     }
   }
 
@@ -82,6 +82,15 @@ body {
     border-color: var(--bs-indigo);
     box-shadow: none;
 }
+
+.form-paragon {
+    margin: 0 .1rem;
+}
+.form-col {
+    padding: 0 0;
+}
+
+
 
 /* fin formularios */   
 

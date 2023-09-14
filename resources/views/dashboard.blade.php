@@ -10,7 +10,7 @@
             <div class="car-inf align-items-center">
                 <div class="d-flex justify-content-between align-items-start">
                     <h5>Total de fichas</h5>
-                     <h1 class="text-end"> 500 </h1>
+                     <h1 class="text-end"> 0 </h1>
                 </div>
                 <br>
                 <div class="d-flex">
@@ -25,7 +25,7 @@
             <div class="car-inf align-items-center">
                 <div class="d-flex justify-content-between align-items-start">
                     <h5>Total de fichas</h5>
-                     <h1 class="text-end"> 500 </h1>
+                     <h1 class="text-end"> 0 </h1>
                 </div>
                 <br>
                 <div class="d-flex">
@@ -40,7 +40,7 @@
             <div class="car-inf align-items-center">
                 <div class="d-flex justify-content-between align-items-start">
                     <h5>Total de fichas</h5>
-                     <h1 class="text-end"> 500 </h1>
+                     <h1 class="text-end"> 0 </h1>
                 </div>
                 <br>
                 <div class="d-flex">
@@ -54,7 +54,7 @@
             <div class="car-inf align-items-center">
                 <div class="d-flex justify-content-between align-items-start">
                     <h5>Total de fichas</h5>
-                     <h1 class="text-end"> 500 </h1>
+                     <h1 class="text-end"> 0 </h1>
                 </div>
                 <br>
                 <div class="d-flex">
