@@ -34,10 +34,10 @@
                         </a>
                         <ul class="sidebar-dropdown-menu">
                             <li class="sidebar-dropdown-menu-item">
-                                <a href="{{route ('admin.form1.create')}}">Planificación curricular</a>
+                                <a href="{{route ('form1.create')}}">Ficha 1-1</a>
                             </li>
                             <li class="sidebar-dropdown-menu-item">
-                                <a href="#">Planificación curricular &nbsp;<span class="badge sp-nuevo">Inicial</span></a>
+                                <a href="#">Ficha 3-1 &nbsp;<span class="badge sp-nuevo">Inicial</span></a>
                             </li>
                         </ul>
                     </li>
@@ -49,9 +49,15 @@
                         </a>
                         <ul class="sidebar-dropdown-menu">
                             <li class="sidebar-dropdown-menu-item">
-                                <a href="#">Practica pedagógica en el aula</a>
+                                <a href="#">Ficha 2-1</a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="sidebar-menu-item pt-1 ">
+                        <a href="{{ route ('power') }}">
+                        <i class="fa-solid fa-chart-simple sidebar-menu-item-icon"></i>
+                            Power BI
+                        </a>
                     </li>
                     <li class="sidebar-menu-item pt-1 has-dropdown">
                         <a href="#">

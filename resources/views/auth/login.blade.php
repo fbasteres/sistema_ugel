@@ -16,8 +16,8 @@
                     @csrf
         
                     <h5 class="fw-semibold">Conoce tu nuevo portal.</h5>
-                    <p class="">Puedes hacer todo lo que necesitas como funcionario. Revisa tus horarios, eventos, trámites y más. De manera más fácil y sencilla.</p>
-                    
+                    <!--<p class="">Puedes hacer todo lo que necesitas como funcionario. Revisa tus horarios, eventos, trámites y más. De manera más fácil y sencilla.</p>-->
+                    @include('layouts.partials.messages')
                     <label for="" class="form-label">Ingresa tus datos para <b>iniciar sesión.</b></label>
                     <div class="mb-4">
                         <input type="text" class="form-control" name="username" placeholder="Usuario">

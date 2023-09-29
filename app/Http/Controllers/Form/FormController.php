@@ -14,21 +14,8 @@ class FormController extends Controller
 
     public function create(){
         
-        $departamentos = Departamentos::get(['name', 'id']);
-        return view('fichas.monitoreo.ficha1-1', compact('departamentos'));
+       
+        return view('Fichas.Monitoreo.Result.ficha1-rst') ;
     }
 
-    public function fetchProvincias(Request $request){
-        $provincias = Provincias::where('departamento_id', $request->departamentos_id)->get(['name','id']);
-        return response()->json($provincias);
-    }
-
-    public function fetchDistritos(Request $request){
-        $provincias = Distritos::where('provincia_id', $request->provincia_id)->get(['name','id']);
-        return response()->json($provincias);
-    }
-
-
-
-    
 }

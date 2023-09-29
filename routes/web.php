@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Form\FormController;
+use App\Http\Controllers\Form\Form1Controller;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -36,11 +36,12 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })-> name ('inicio');
 
+Route::get('/power-bi', function () {
+    return view('pages.powerbi');
+})-> name ('power');
+
+Route::resource('form1', Form1Controller::class) -> names ('form1');
 
 
-
-Route::resource('form1', FormController::class) -> names ('admin.form1');
-Route::post('api/fetchProvincias',[FormController::class, 'fetchProvincias' ]);
-Route::post('api/fetchDistritos',[FormController::class, 'fetchDistritos' ]);
 
 
