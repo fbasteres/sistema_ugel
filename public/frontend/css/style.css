@@ -19,9 +19,13 @@
 }
 
 
-.temp {
-    font-size: 5px;
-    color: #ae1400;
+.fichas-ver>a{
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: padding-right 0.3s;
+}
+.fichas-ver>a:hover{
+    padding-right: 1rem;
 }
 /*Goblal*/
 

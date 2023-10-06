@@ -4,7 +4,7 @@
 <title>Paragon+ | Ficha 1 - 1 </title>
 <div class="container-fluid px-5 pb-5">
     <div class="py-4">
-        <a href="" class="href-closed">
+        <a href="{{ route('inicio') }}" class="href-closed">
             <button class="btn-closed d-flex">
                     <i class="fa-solid fa-arrow-left"></i>&nbsp; &nbsp;
                     <h6>Regresar</h6> 
@@ -14,25 +14,26 @@
 
     
     <span class="badge rounded-pill sp-atendido">Ficha 1 - 1</span>
+
     <div class="d-flex justify-content-between align-items-start">
         <h5 class="pb-4">Ficha de monitoreo planificación curricular</h5>
         <div class="">
             <button class="btn sp-finalizado px-5"><i class="fa-regular fa-paper-plane"></i>&nbsp;&nbsp; Enviar</button>
         </div>
     </div>
-    
+    @include('layouts.partials.messages')
     <div class="row">
         <div class="col-md-4">
             <div class="car-inf card-rst align-items-center">
                 <div class="d-flex justify-content-between align-items-start">
                     <p class="m-0">Resultado</p>
                     <div class="d-flex">
-                        <h5><span class="badge sp-nuevo">Suficiente</span></h5>
+                       {{-- <h5><spanclass="badgesp-nuevo">Suficiente</span></h5> --}}
                     </div>
                 </div>
                 <h5>Valoración planificación anual</h5>
                 <div class="d-flex">
-                    <h1> 15 </h1>
+                    <h1>{{ $form1->rsta_1 }}</h1>
                 </div>
             </div>
         </div>
@@ -41,12 +42,12 @@
                 <div class="d-flex justify-content-between align-items-start">
                     <p class="m-0">Resultado</p>
                     <div class="d-flex">
-                        <h5><span class="badge sp-finalizado">Derficiente</span></h5>
+                        {{-- <h5><spanclass="badgesp-nuevo">Suficiente</span></h5> --}}
                     </div>
                 </div>
                 <h5>Valoración unidad didáctica</h5>
                 <div class="d-flex">
-                    <h1> 5 </h1>
+                    <h1>{{ $form1->rsta_2 }}</h1>
                 </div>
             </div>
         </div>

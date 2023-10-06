@@ -5,6 +5,7 @@ use App\Http\Controllers\Form\Form1Controller;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Home\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::post('/register', [RegisterController::class, 'register'])
 -> name ('registro');
 
 Route::get('/', [LoginController::class, 'show']);
+
 Route::get('/login', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'login'])
 -> name ('login');
@@ -32,9 +34,7 @@ Route::get('/logout', [LogoutController::class, 'logout'])
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})-> name ('inicio');
+Route::get('/dashboard',[HomeController::class, 'index'])-> name ('inicio');
 
 Route::get('/power-bi', function () {
     return view('pages.powerbi');

@@ -17,6 +17,7 @@ use App\Models\TipoPro;
 use App\Models\CodInst;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 
 class Form1Controller extends Controller
 {
@@ -71,8 +72,9 @@ class Form1Controller extends Controller
     
     public function store(Form1Request $request)
     {
+        
         $forms1 = new Form1;
-        /*datos generales */
+        /*datos generales*/
         $forms1->region_id = $request->region_id;
         $forms1->provincia_id = $request->provincia_id;
         $forms1->distrito_id = $request->distrito_id;
@@ -90,7 +92,7 @@ class Form1Controller extends Controller
         $forms1->last_name = $request->last_name;
         $forms1->nro_dni = $request->nro_dni;
         $forms1->tipoPro_id = $request->tipoPro_id;
-        /* Verificacion de la planificación anual */
+        /* Verificacion de la planificación anual*/
         $forms1->vpa_pre1 = $request->vpa_pre1;
         $forms1->vpa_coment_pre1 = $request->vpa_coment_pre1;
         $forms1->vpa_pre2 = $request->vpa_pre2;
@@ -109,7 +111,7 @@ class Form1Controller extends Controller
         $forms1->vpa_coment_pre8 = $request->vpa_coment_pre8;
         $forms1->vpa_pre9 = $request->vpa_pre9;
         $forms1->vpa_coment_pre9 = $request->vpa_coment_pre9;
-        $forms1->vpa_pre1 = $request->vpa_pre10;
+        $forms1->vpa_pre10 = $request->vpa_pre10;
         $forms1->vpa_coment_pre10 = $request->vpa_coment_pre10;
         $forms1->vpa_pre11 = $request->vpa_pre11;
         $forms1->vpa_coment_pre11 = $request->vpa_coment_pre11;
@@ -140,7 +142,7 @@ class Form1Controller extends Controller
         $forms1->vud_coment_pre8 = $request->vud_coment_pre8;
         $forms1->vud_pre9 = $request->vud_pre9;
         $forms1->vud_coment_pre9 = $request->vud_coment_pre9;
-        $forms1->vud_pre1 = $request->vud_pre10;
+        $forms1->vud_pre10 = $request->vud_pre10;
         $forms1->vud_coment_pre10 = $request->vud_coment_pre10;
         $forms1->vud_pre11 = $request->vud_pre11;
         $forms1->vud_coment_pre11 = $request->vud_coment_pre11;
@@ -153,16 +155,27 @@ class Form1Controller extends Controller
         $forms1->vud_pre15 = $request->vud_pre15;
         $forms1->vud_coment_pre15 = $request->vud_coment_pre15;
 
+        $forms1->rsta_1 = $request->vpa_pre1 + $request->vpa_pre2 + $request->vpa_pre3 + $request->vpa_pre4
+        + $request->vpa_pre5 + $request->vpa_pre6 + $request->vpa_pre7 + $request->vpa_pre8 + $request->vpa_pre9
+        + $request->vpa_pre10 + $request->vpa_pre11 + $request->vpa_pre12 + $request->vpa_pre13 + $request->vpa_pre14
+        + $request->vpa_pre15;
+
+        $forms1->rsta_2 = $request->vud_pre1 + $request->vud_pre2 + $request->vud_pre3 + $request->vud_pre4
+        + $request->vud_pre5 + $request->vud_pre6 + $request->vud_pre7 + $request->vud_pre8 + $request->vud_pre9
+        + $request->vud_pre10 + $request->vud_pre11 + $request->vud_pre12 + $request->vud_pre13 + $request->vud_pre14
+        + $request->vud_pre15;
+
         $forms1->save();
         
-        return view('Fichas.Monitoreo.Form1.index')->with('success','Procesado Correctamente');
+        return redirect()->route('form1.edit', $forms1-> id)->with('success','Enviado Correctamente');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Form1 $form1)
+    public function show(Form1 $forms1)
     {
+        
         return view('Fichas.Monitoreo.Form1.show', compact('form1'));
     }
 
@@ -171,7 +184,7 @@ class Form1Controller extends Controller
      */
     public function edit(Form1 $form1)
     {
-        return view('Fichas.Monitoreo.Form1.edit', compact('form1'));
+        return view('Fichas.Monitoreo.Form1.resp', compact('form1'));
     }
 
     /**
@@ -179,7 +192,6 @@ class Form1Controller extends Controller
      */
     public function update(Form1Request $request, string $id)
     {
-        $form1 = Form1::update($request->validated());
         return redirect()->route('form1.index')->with('success','Enviado Correctamente');
     }
 
@@ -188,7 +200,7 @@ class Form1Controller extends Controller
      */
     public function destroy(string $id)
     {
-        $form1->delete();
+        $forms1->delete();
         return redirect()->route('form1.index')->with('success','Enviado Correctamente');
     }
 }

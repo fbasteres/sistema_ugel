@@ -10,14 +10,15 @@
             <div class="car-inf align-items-center">
                 <div class="d-flex justify-content-between align-items-start">
                     <h5>Total de fichas</h5>
-                     <h1 class="text-end"> 0 </h1>
+                     <h1 class="text-end"> {{ $totalForm1 }} </h1>
                 </div>
                 <br>
                 <div class="d-flex">
                     <i class="fa-solid fa-desktop"></i>&nbsp;&nbsp;&nbsp;
                     <h6>Fichas de Monitoreo &nbsp;<span class="badge sp-proceso">Ficha 1 - 1</span></h6>
                 </div>
-                <h6>Ficha de monitoreo planificación curricular.</h6>    
+                <h6>Ficha de monitoreo planificación curricular.</h6>
+                <h6 class="text-end pt-4 fichas-ver"><a href="{{ route('form1.index') }}">Ver listado &nbsp;<i class="fa-solid fa-arrow-right-long"></i></a></h6>   
             </div>
         </div>
 
