@@ -3,10 +3,10 @@
 @section('content')
 <title>Paragon+ | Dashboard </title>
 
-<div class="container-fluid p-5">
-    <h3 class="pb-4">Dashboard</h3>
+<div class="container pt-4">
+    <h3 class="pb-4 fw-semibold">Dashboard</h3>
     <div class="row align-items-md-stretch">
-        <div class="col-md-3">
+        <div class="col-md-3 pb-3">
             <div class="car-inf align-items-center">
                 <div class="d-flex justify-content-between align-items-start">
                     <h5>Total de fichas</h5>
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-3 pb-3">
             <div class="car-inf align-items-center">
                 <div class="d-flex justify-content-between align-items-start">
                     <h5>Total de fichas</h5>
@@ -37,7 +37,7 @@
                 <h6>Ficha de observación a docentes sobre la práctica pedagógica en el aula.</h6>    
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 pb-3">
             <div class="car-inf align-items-center">
                 <div class="d-flex justify-content-between align-items-start">
                     <h5>Total de fichas</h5>
@@ -51,7 +51,7 @@
                 <h6>Ficha de monitoreo planificación curricular - inicial</h6>    
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 pb-3">
             <div class="car-inf align-items-center">
                 <div class="d-flex justify-content-between align-items-start">
                     <h5>Total de fichas</h5>

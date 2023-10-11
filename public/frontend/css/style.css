@@ -11,11 +11,12 @@
     --proceso-bg:#f3fdff;
     --finalizado:#ae1400;
     --finalizado-bg:#ffd7d5;
-    --paragon-violeta:rgb(91, 54, 242);
-    --paragon-violeta-os:rgb(110, 76, 249); 
+    --paragon-violeta:#5b36f2;
+    --paragon-violeta-os:#8f80f8; 
     --btn-closed-main:#fc4a61;
     --btn-closed-hover:#fed4d6;
     --btn-clossed-focus:  #fdadb3;
+    --paragon-violeta-t:#d0caf7;
 }
 
 
@@ -154,6 +155,20 @@ body {
 }
 
 /* inicio botones universales*/
+.xpgbtn_primary {
+    color: var(--bs-white);
+    background-color: var(--paragon-violeta);
+    border-width: 0;
+    padding: .5rem 3rem;
+    font-size: .9rem;
+    font-weight: 500; 
+    border-radius: .3rem;
+}
+.xpgbtn_primary:hover {
+    color: var(--bs-white);
+    background-color: var(--paragon-violeta-os);
+}
+
 .btn-paragon-primary {
     color: var(--bs-white);
     background-color: var(--paragon-violeta);
@@ -262,12 +277,40 @@ body {
 
 /*Inicio card-universales*/
 .car-inf {
-    border-radius: 0.7rem;
+    border-radius: 0.5rem;
     box-shadow: rgba(176, 192, 202, 0.2) 0 0.2rem 1rem -.2rem;
     background-color: var(--bs-white);
     padding: 2rem;
     height: 100%;
-    
+}
+
+.card_paragon {
+    border-radius: 0.5rem;
+    box-shadow: rgba(176, 192, 202, 0.2) 0 0.2rem 1rem -.2rem;
+    background-color: var(--bs-white);
+    padding: 1.7rem;
+    height: 100%;
+
+}
+.card_paragon h5 {
+    font-weight: 600;
+    color: var(--proceso);
+}
+.card_paragon h1 {
+    color: var(--bs-gray-600);
+}
+.card_paragon i{
+    color: var(--paragon-violeta);
+    background-color: var(--paragon-violeta-t);
+    border-radius: .2rem;
+    padding: .4rem;
+    font-size: 1.2rem;
+}
+.card_paragon p {
+    padding: .5rem 0;
+    color: var(--bs-gray-700);
+    font-size: .9rem;
+    font-weight: 600;
 }
 
 .car-inf h5 {
@@ -313,9 +356,6 @@ body {
     border: solid 0.07rem var(--bs-gray-400);
 }
 
-.card-rst h1{
-    color: var(--bs-gray-600);
-}
 /*Fin card-universales*/
 
  /*alerta */
@@ -532,6 +572,11 @@ nav{
     display: flex;
     align-items: center;
 }
+
+.text-navi {
+    display: none;
+}
+
 .navbar-profile-image{
     width: 2.1rem;
     height: 2.1rem;
@@ -575,6 +620,9 @@ nav{
 /* `md` applies to small devices (landscape phones, less than 768px)*/
 @media (min-width: 768px) {
     /* start: Sidebar */
+    .text-navi {
+        display: block;
+    }
     .sidebar-overlay {
         opacity: 0;
         visibility: hidden;

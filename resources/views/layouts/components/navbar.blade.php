@@ -1,6 +1,6 @@
 <!--inicio navbar-->
-<nav class="px-4 py-2 bg-white navi">
-        <p class="mb-0" >
+<nav class="px-3 py-2 bg-white navi">
+        <p class="mb-0 text-navi" >
         UGEL - Unidad de Gestión Educativa Tarma
         </p>
         <div class="d-flex align-items-center ms-auto liner">

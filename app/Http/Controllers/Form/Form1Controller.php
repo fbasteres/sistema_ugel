@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Form;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Form1Request;
 use App\Models\Form\Form1;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Departamentos;
 use App\Models\Provincias;
 use App\Models\Distritos;
@@ -75,6 +76,7 @@ class Form1Controller extends Controller
         
         $forms1 = new Form1;
         /*datos generales*/
+        $forms1->user_id = Auth::id();
         $forms1->region_id = $request->region_id;
         $forms1->provincia_id = $request->provincia_id;
         $forms1->distrito_id = $request->distrito_id;
@@ -190,8 +192,14 @@ class Form1Controller extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Form1Request $request, string $id)
+    public function update(Request $request, $id)
     {
+        $form1 = Form1::find($id);
+        $form1->obs = $request->input('obs');
+        $form1->recomend = $request->input('recomend');
+        $form1->cmejora = $request->input('cmejora');
+        $form1->update();
+
         return redirect()->route('form1.index')->with('success','Enviado Correctamente');
     }
 

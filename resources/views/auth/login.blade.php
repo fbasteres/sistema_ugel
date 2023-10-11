@@ -27,7 +27,7 @@
                     </div>
                    
                     <div class="d-grid py-3">
-                        <input type="submit" class="btn btn-purple btn-log" value="Iniciar Sesión">
+                        <input type="submit" class="btn xpgbtn_primary w-50" value="Iniciar Sesión">
                     </div>
                     
                     <div class="text-center login-form">

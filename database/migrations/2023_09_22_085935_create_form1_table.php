@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('form1', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->foreignId('region_id');
             $table->foreignId('provincia_id');
             $table->foreignId('distrito_id');
