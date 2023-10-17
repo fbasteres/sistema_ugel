@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('provincia_id');
             $table->foreignId('distrito_id');
             $table->foreignId('ugel_id');
-            $table->foreignId('cod_id');
+            $table->foreignId('iedu_id');
             $table->foreignId('carac_id');
             $table->foreignId('grado_id');
             $table->foreignId('seccion_id');

@@ -26,7 +26,7 @@ class Form1Request extends FormRequest
             'provincia_id' => 'required',
             'distrito_id' => 'required',
             'ugel_id' => 'required',
-            'cod_id' => 'required',
+            'iedu_id' => 'required',
             'carac_id' => 'required',
             'grado_id' => 'required',
             'seccion_id' => 'required',

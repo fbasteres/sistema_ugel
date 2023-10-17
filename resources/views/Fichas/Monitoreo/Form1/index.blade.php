@@ -13,26 +13,26 @@
     </div>
     <div class="container">
         @include('layouts.partials.messages')
-        <div class="car-inf p-3">
+        <div class="car-inf">
             <table id="tabla_usuario" class="table table" style="width:100%">
                 <thead>
                     <tr>
+                        <th>N° DNI</th>
                         <th>Apellidos y Nombres</th>
-                        <th>Nombre</th>
-                        <th>Guard</th>
-                        <th>Fecha de Creación</th>
+                        <th>institución</th>
+                        <th>Fecha</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    @foreach ($formulario1 as $formulario)
                     <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
+                        <td>{{ $formulario['nro_dni']}}</td>
+                        <td>{{ $formulario['last_name']}} {{ $formulario['name']}}</td>
+                        <td>{{ $formulario->iedu->name}}</td>
+                        <td>{{ $formulario['fecha']}}</td>
                         <td>
-                            <a href="" class="btn btn-acciones">
+                            <a href="{{route ('form1.show', $formulario -> id )}}" class="btn btn-acciones">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
                             <form action="" method="POST"
@@ -43,14 +43,14 @@
                             </form>
                         </td>
                     </tr>
-    
+                    @endforeach
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Guard</th>
-                        <th>Fecha de Creación</th>
+                        <th>N° DNI</th>
+                        <th>Apellidos y Nombres</th>
+                        <th>Institución</th>
+                        <th>Fecha</th>
                         <th>Acciones</th>
                     </tr>
                 </tfoot>

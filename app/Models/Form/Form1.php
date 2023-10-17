@@ -4,6 +4,9 @@ namespace App\Models\Form;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Models\Iedu;
+
 
 class Form1 extends Model
 {
@@ -15,4 +18,10 @@ class Form1 extends Model
         'provincia_id'
 
     ];
+
+
+    public function iedu(): HasOne
+    {
+        return $this->hasOne(Iedu::class, 'id', 'iedu_id');
+    }
 }

@@ -74,9 +74,10 @@
                             </div>
                             <div class="col-4 car-form">
                                 <label for="name" class="form-label">institución educativa</label>
-                                <select class="form-select" name="cod_id" id="educativa">
-                                    @foreach ($codinst as $inst)
-                                    <option value="{{ $inst ['id'] }}">{{ $inst ['name'] }} | {{ $inst->Iedu->name ?? 'Sin institucion' }}</option>
+                                <select class="form-select" name="iedu_id" id="educativa">
+                                    <option value="">Selecione una opción</option>
+                                    @foreach ($iedu as $ied)
+                                    <option value="{{ $ied ['id'] }}">{{ $ied ['cod_mod'] }} | {{ $ied ['name'] }}</option>
                                     @endforeach  
                                 </select>
                             </div>
@@ -150,6 +151,7 @@
                                     @endforeach 
                                 </select>
                             </div>
+                            
                         </div>
                     </div>
                     <div class="tab-pane fade" id="form2-tab-pane" role="tabpanel" aria-labelledby="form2-tab" tabindex="0">
