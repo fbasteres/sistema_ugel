@@ -29,18 +29,13 @@
                     <tr>
                         <td>{{ $formulario['nro_dni']}}</td>
                         <td>{{ $formulario['last_name']}} {{ $formulario['name']}}</td>
-                        <td>{{ $formulario->iedu->name}}</td>
+                        <td>{{ $formulario->iedu->cod_mod }} {{ $formulario->iedu->name}}</td>
                         <td>{{ $formulario['fecha']}}</td>
                         <td>
                             <a href="{{route ('form1.show', $formulario -> id )}}" class="btn btn-acciones">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
-                            <form action="" method="POST"
-                                style="display:inline-block;" onsubmit="">
-                                <button class="btn btn-acciones"  type="submit" rel="tooltip">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </button>
-                            </form>
+                            
                         </td>
                     </tr>
                     @endforeach

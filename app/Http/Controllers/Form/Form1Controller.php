@@ -32,7 +32,7 @@ class Form1Controller extends Controller
 
     public function index()
     {
-        //$form1 = Form1::all();
+        //$totalForm1 = Form1::where('user_id')->count();
         $formulario1 = Form1::with('iedu')->get();
         return view('Fichas.Monitoreo.Form1.index', compact ('formulario1'));
     }

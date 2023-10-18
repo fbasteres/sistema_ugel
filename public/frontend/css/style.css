@@ -276,7 +276,22 @@ body {
 
 
 /*Inicio card-universales*/
+.car-inf2 {
+    border-style: solid;
+    border-color: var(--paragon-violeta);
+    border-width:0 0 .5rem 0;
+    border-radius: 0.5rem;
+    box-shadow: rgba(176, 192, 202, 0.2) 0 0.2rem 1rem -.2rem;
+    background-color: var(--bs-white);
+    color: var(--primary-color);
+    padding: 2rem;
+    height: 100%;
+}
+
 .car-inf {
+    border-style: solid;
+    border-color: var(--bs-gray-400);
+    border-width:0 0 .5rem 0;
     border-radius: 0.5rem;
     box-shadow: rgba(176, 192, 202, 0.2) 0 0.2rem 1rem -.2rem;
     background-color: var(--bs-white);
@@ -284,14 +299,41 @@ body {
     height: 100%;
 }
 
+.car-inf2-gris{
+    color: var(--bs-gray-600);
+} 
+
+
+
+.car-inf li {
+    font-weight: 500;
+}
+
+.car-inf-disabled {
+    border-style: solid;
+    border-color: var(--bs-gray-400);
+    border-width:0 0 .5rem 0;
+    border-radius: 0.5rem;
+    color: var(--bs-gray-500);
+    box-shadow: rgba(176, 192, 202, 0.2) 0 0.2rem 1rem -.2rem;
+    background-color: var(--bs-gray-300);
+    padding: 2rem;
+    height: 100%;
+}
+
+.car-inf-disabled i{
+    color: var(--bs-gray-500);
+}
+
+
 .card_paragon {
     border-radius: 0.5rem;
     box-shadow: rgba(176, 192, 202, 0.2) 0 0.2rem 1rem -.2rem;
     background-color: var(--bs-white);
     padding: 1.7rem;
     height: 100%;
-
 }
+
 .card_paragon h5 {
     font-weight: 600;
     color: var(--proceso);
@@ -313,14 +355,6 @@ body {
     font-weight: 600;
 }
 
-.car-inf h5 {
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-.car-inf li {
-    font-weight: 500;
-}
 
 
 .nav-link {

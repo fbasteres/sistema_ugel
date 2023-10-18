@@ -11,8 +11,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        //$totalForm1 = Form1::where('user_id', Auth::id())->count();
-        $totalForm1 = Form1::count('id');
+        $totalForm1 = Form1::where('user_id', Auth::id())->count();
+        //$totalForm1 = Form1::count('id');
         return view('dashboard',compact('totalForm1'));
     }
 }
