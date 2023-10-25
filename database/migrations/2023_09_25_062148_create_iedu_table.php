@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('iedu', function (Blueprint $table) {
             $table->id();
             $table->string('cod_mod')->unique();
+            $table->string('nivel_edu');
             $table->string('name');
             $table->timestamps();
         });

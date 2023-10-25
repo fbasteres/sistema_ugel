@@ -77,7 +77,7 @@
                                 <select class="form-select" name="iedu_id" id="educativa">
                                     <option value="">Selecione una opción</option>
                                     @foreach ($iedu as $ied)
-                                    <option value="{{ $ied ['id'] }}">{{ $ied ['cod_mod'] }} | {{ $ied ['name'] }}</option>
+                                    <option value="{{ $ied ['id'] }}">{{ $ied ['name'] }} | {{ $ied ['nivel_edu'] }}</option>
                                     @endforeach  
                                 </select>
                             </div>
@@ -119,8 +119,8 @@
                                 <input type="date" class="form-control" name="fecha">
                             </div>
                             <div class="col-2 car-form pt-4">
-                                <label for="text" class="form-label">Visita N°</label>
-                                <input type="text" class="form-control" name="nroVisita">
+                                <label for="number" class="form-label">Visita N°</label>
+                                <input type="number" class="form-control" name="nroVisita">
                             </div>
                             <div class="col-3 car-form pt-4">
                                 <label for="" class="form-label">Hora de inicio</label>
@@ -140,8 +140,8 @@
                                 <input type="text" class="form-control" name="last_name">
                             </div>
                             <div class="col-2 car-form pt-4">
-                                <label for="" class="form-label">DNI</label>
-                                <input type="text" class="form-control" name="nro_dni">
+                                <label for="number" class="form-label">DNI</label>
+                                <input type="number" class="form-control" id="validationTextarea" name="nro_dni">
                             </div>
                             <div class="col-2 car-form py-4">
                                 <label for="name" class="form-label">Profesional</label>

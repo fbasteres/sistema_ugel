@@ -53,10 +53,16 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="sidebar-menu-item pt-1 ">
+                    <li class="sidebar-menu-item pt-1 {{ 'power-bi' == request()->path() ? 'active' : '' }}">
                         <a href="{{ route ('power') }}">
                         <i class="fa-solid fa-chart-simple sidebar-menu-item-icon"></i>
                             Power BI
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item pt-1 {{ 'report' == request()->path() ? 'active' : '' }}">
+                        <a href="">
+                        <i class="fa-solid fa-database sidebar-menu-item-icon"></i>
+                            Reportes
                         </a>
                     </li>
                     <li class="sidebar-menu-item pt-1 has-dropdown">

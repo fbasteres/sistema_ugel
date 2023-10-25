@@ -37,6 +37,13 @@ class Form1Controller extends Controller
         return view('Fichas.Monitoreo.Form1.index', compact ('formulario1'));
     }
 
+    public function reporte()
+    {
+        //$totalForm1 = Form1::where('user_id')->count();
+        $formulario1 = Form1::with('iedu')->get();
+        return view('Fichas.Monitoreo.Form1.index', compact ('formulario1'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -78,6 +85,7 @@ class Form1Controller extends Controller
         $form1 = new Form1;
         /*datos generales*/
         $form1->user_id = Auth::id();
+        $form1->cod_form = ++;
         $form1->region_id = $request->region_id;
         $form1->provincia_id = $request->provincia_id;
         $form1->distrito_id = $request->distrito_id;
@@ -167,10 +175,10 @@ class Form1Controller extends Controller
         + $request->vud_pre5 + $request->vud_pre6 + $request->vud_pre7 + $request->vud_pre8 + $request->vud_pre9
         + $request->vud_pre10 + $request->vud_pre11 + $request->vud_pre12 + $request->vud_pre13 + $request->vud_pre14
         + $request->vud_pre15;
-
+        
         $form1->save();
         
-        return redirect()->route('form1.edit', $form1-> id)->with('success','Enviado Correctamente');
+        return redirect()->route('form1.edit', $form1-> id)->with('success','Procesado Correctamente');
     }
 
     /**

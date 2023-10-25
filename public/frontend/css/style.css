@@ -276,6 +276,22 @@ body {
 
 
 /*Inicio card-universales*/
+.car-inf1 {
+    border-style: solid;
+    border-color: var(--primary-color);
+    border-width:0 0 0 .5rem;
+    border-radius: 0.5rem;
+    box-shadow: rgba(176, 192, 202, 0.2) 0 0.2rem 1rem -.2rem;
+    background-color: var(--bs-white);
+    color: var(--bs-gray-700);
+    padding: 2rem;
+    height: 100%;
+}
+.car-inf1 h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+
+}
 .car-inf2 {
     border-style: solid;
     border-color: var(--paragon-violeta);
@@ -298,6 +314,8 @@ body {
     padding: 2rem;
     height: 100%;
 }
+
+
 
 .car-inf2-gris{
     color: var(--bs-gray-600);
@@ -332,6 +350,12 @@ body {
     background-color: var(--bs-white);
     padding: 1.7rem;
     height: 100%;
+}
+.card_paragon2-interior {
+    border-radius: 0.5rem;
+    box-shadow: rgba(105, 113, 118, 0.404) 0 0.2rem 1rem -.2rem;
+    background-color: var(--bs-white);
+    padding: 1.7rem;
 }
 
 .card_paragon h5 {
@@ -418,10 +442,15 @@ body {
     background-color: #e9eaea;
   }
   
+  .sp-naranja {
+    color: #b87e03;
+    background-color: #fee2bc;
+  }
   .sp-proceso {
     color: #0056AC;
     background-color: #f3fdff;
   }
+
   .sp-finalizado {
     color: #ae1400;
     background-color: #ffd7d5;

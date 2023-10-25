@@ -40,7 +40,14 @@ Route::get('/power-bi', function () {
     return view('pages.powerbi');
 })-> name ('power');
 
+/* CRUD Formularios */
 Route::resource('form1', Form1Controller::class) -> names ('form1');
+Route::resource('form2', Form2Controller::class) -> names ('form2');
+Route::resource('form3', Form3Controller::class) -> names ('form3');
+Route::resource('alm1', Alm1Controller::class) -> names ('alm1');
+
+/* Reporte Formularios */
+Route::get('/formulario1/reporte',[Form1Controller::class, 'reporte'])-> name ('reporte1');
 
 
 

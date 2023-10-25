@@ -26,10 +26,44 @@
             @include('layouts.partials.messages')
             <div class="row">
                 <div class="col-md-4 pb-4">
+                    <div class="car-inf1 align-items-center">
+                        <p class="m-0">{{ $form1->iedu->cod_mod }}</p>
+                        <h6>{{ $form1->iedu->name }}</h6>
+                        <hr>
+                        <h6>{{ $form1->tipopro->name }}</h6>
+                        <h5 class="m-0">{{ $form1->last_name }} {{ $form1->name }}</h5>
+                        <p class="m-0 pt-2"><i class="fa-solid fa-address-card"></i>&nbsp;{{ $form1 ['nro_dni'] }}</p>
+                    </div>
+                </div>
+                <div class="col-md-4 pb-4">
                     <div class="card_paragon align-items-center">
+                        <div class="d-flex justify-content-between">
                             <i class="fa-regular fa-paste"></i>
+                            <h6>
+                                <?php
+                                    switch ( true ) {
+                                        case (  $form1->rsta_1 >= 0 &&  $form1->rsta_1 <= 7):
+                                            echo '<span class="badge sp-finalizado">Necesita mejorar</span>';
+                                            break;
+                                        case (  $form1->rsta_1 >= 8 &&  $form1->rsta_1 <= 10):
+                                            echo '<span class="badge sp-naranja">En proceso</span>';
+                                            break;
+                                        case (  $form1->rsta_1 >= 11 &&  $form1->rsta_1 <= 13):
+                                            echo '<span class="badge sp-nuevo">Suficiente</span>';
+                                            break;
+                                        case (  $form1->rsta_1 >= 14 &&  $form1->rsta_1 <= 15):
+                                            echo '<span class="badge sp-atendido">Destacado</span>';
+                                            break;
+                                    }
+                                ?>
+                                
+                            </h6>
+                        </div>
+                       
+                        <div class="d-flex align-items-start">
                             <p class="m-0">Resultado</p>
-                        <h5>Valoración planificación anual</h5>
+                        </div>
+                        <h5>Valoración unidad didáctica</h5>
                         <div class="d-flex">
                             <h1>{{ $form1->rsta_1 }}</h1>
                         </div>
@@ -37,12 +71,30 @@
                 </div>
                 <div class="col-md-4 pb-4">
                     <div class="card_paragon align-items-center">
-                        <i class="fa-regular fa-paste"></i>
-                        <div class="d-flex justify-content-between align-items-start">
+                        <div class="d-flex justify-content-between">
+                            <i class="fa-regular fa-paste"></i>
+                            <h6>
+                                <?php
+                                    switch ( true ) {
+                                        case (  $form1->rsta_2 >= 0 &&  $form1->rsta_2 <= 7):
+                                            echo '<span class="badge sp-finalizado">Necesita mejorar</span>';
+                                            break;
+                                        case (  $form1->rsta_2 >= 8 &&  $form1->rsta_2 <= 10):
+                                            echo '<span class="badge sp-naranja">En proceso</span>';
+                                            break;
+                                        case (  $form1->rsta_2 >= 11 &&  $form1->rsta_2 <= 13):
+                                            echo '<span class="badge sp-nuevo">Suficiente</span>';
+                                            break;
+                                        case (  $form1->rsta_2 >= 14 &&  $form1->rsta_2 <= 15):
+                                            echo '<span class="badge sp-atendido">Destacado</span>';
+                                            break;
+                                    }
+                                ?>
+                            </h6>
+                        </div>
+                       
+                        <div class="d-flex align-items-start">
                             <p class="m-0">Resultado</p>
-                            <div class="d-flex">
-                                {{-- <h5><spanclass="badgesp-nuevo">Suficiente</span></h5> --}}
-                            </div>
                         </div>
                         <h5>Valoración unidad didáctica</h5>
                         <div class="d-flex">

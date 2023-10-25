@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('form1', function (Blueprint $table) {
             $table->id();
+            $table->char('cod_form')->Increments();
             $table->foreignId('user_id');
             $table->foreignId('region_id');
             $table->foreignId('provincia_id');
@@ -31,6 +32,8 @@ return new class extends Migration
             $table->string('last_name');
             $table->char('nro_dni');
             $table->foreignId('tipoPro_id');
+            $table->char('state', 1)->default('1');
+
 
             /*Verificacion de la planificacion anual */
             $table->boolean('vpa_pre1');
