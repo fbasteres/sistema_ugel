@@ -23,7 +23,7 @@
         </div>
 
         <div class="col-md-3 pb-3">
-            <div class="car-inf-disabled align-items-center">
+            <div class="car-inf2 align-items-center">
                 <div class="d-flex justify-content-between align-items-start">
                     <h5>Total de fichas</h5>
                      <h1 class="text-end"> 0 </h1>
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="col-md-3 pb-3">
-            <div class="car-inf-disabled align-items-center">
+            <div class="car-inf2 align-items-center">
                 <div class="d-flex justify-content-between align-items-start">
                     <h5>Total de fichas</h5>
                      <h1 class="text-end"> 0 </h1>
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="col-md-3 pb-3">
-            <div class="car-inf-disabled align-items-center">
+            <div class="car-inf2 align-items-center">
                 <div class="d-flex justify-content-between align-items-start">
                     <h5>Total de fichas</h5>
                      <h1 class="text-end"> 0 </h1>

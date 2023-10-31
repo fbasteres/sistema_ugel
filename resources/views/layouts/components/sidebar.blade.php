@@ -37,7 +37,7 @@
                                 <a href="{{route ('form1.create')}}">Ficha 1-1</a>
                             </li>
                             <li class="sidebar-dropdown-menu-item">
-                                <a href="#">Ficha 3-1 &nbsp;<span class="badge sp-nuevo">Inicial</span></a>
+                                <a href="{{route ('form3.create')}}">Ficha 3-1 &nbsp;<span class="badge sp-nuevo">Inicial</span></a>
                             </li>
                         </ul>
                     </li>

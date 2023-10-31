@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Form\Form1Controller;
+use App\Http\Controllers\Form\Form3Controller;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -42,12 +43,12 @@ Route::get('/power-bi', function () {
 
 /* CRUD Formularios */
 Route::resource('form1', Form1Controller::class) -> names ('form1');
-Route::resource('form2', Form2Controller::class) -> names ('form2');
+//Route::resource('form2', Form2Controller::class) -> names ('form2');
 Route::resource('form3', Form3Controller::class) -> names ('form3');
-Route::resource('alm1', Alm1Controller::class) -> names ('alm1');
+//Route::resource('alm1', Alm1Controller::class) -> names ('alm1');
 
 /* Reporte Formularios */
-Route::get('/formulario1/reporte',[Form1Controller::class, 'reporte'])-> name ('reporte1');
+
 
 
 

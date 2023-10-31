@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('form1', function (Blueprint $table) {
+        Schema::create('form3', function (Blueprint $table) {
             $table->id();
             $table->text('cod_form');
             $table->foreignId('user_id');
@@ -103,7 +103,7 @@ return new class extends Migration
             $table->text('cmejora')->nullable();
             $table->text('rsta_1')->nullable();
             $table->text('rsta_2')->nullable();
-
+            
             $table->timestamps();
         });
     }
@@ -113,6 +113,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('form1');
+        Schema::dropIfExists('form3');
     }
 };

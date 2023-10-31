@@ -305,9 +305,6 @@ body {
 }
 
 .car-inf {
-    border-style: solid;
-    border-color: var(--bs-gray-400);
-    border-width:0 0 .5rem 0;
     border-radius: 0.5rem;
     box-shadow: rgba(176, 192, 202, 0.2) 0 0.2rem 1rem -.2rem;
     background-color: var(--bs-white);

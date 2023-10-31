@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Form;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\Form1Request;
+use App\Http\Requests\Form3Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Form\Form1;
+use App\Models\Form\Form3;
 use App\Models\Departamentos;
 use App\Models\Provincias;
 use App\Models\Distritos;
@@ -16,14 +16,11 @@ use App\Models\Grado;
 use App\Models\Seccion;
 use App\Models\Turno;
 use App\Models\TipoPro;
-use App\Models\Iedu;
+use App\Models\Iedu;    
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
-class Form1Controller extends Controller
+class Form3Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -31,14 +28,15 @@ class Form1Controller extends Controller
 
     public function index()
     {
-        $formulario1 = Form1::where('user_id', Auth::id())-> with('iedu')->get();
-        //$formulario1 = Form1::with('iedu')->get();
+        $formulario1 = Form3::where('user_id', Auth::id())-> with('iedu')->get();
+        //$formulario1 = Form3::with('iedu')->get();
         return view('Fichas.Monitoreo.Form1.index', compact ('formulario1'));
     }
 
     public function reporte()
     {
-        $formulario1 = Form1::with('iedu')->get();
+        //$totalForm1 = Form1::where('user_id')->count();
+        $formulario1 = Form3::with('iedu')->get();
         return view('Fichas.Monitoreo.Form1.index', compact ('formulario1'));
     }
 
@@ -58,7 +56,7 @@ class Form1Controller extends Controller
         $tipopro = TipoPro::all();
         $iedu = Iedu::all();
 
-        return view('Fichas.Monitoreo.Form1.create',[
+        return view('Fichas.Monitoreo.Form3.create',[
             'departamentos' => $departamentos,
             'provincias' => $provincias,
             'distritos' => $distritos,
@@ -80,10 +78,10 @@ class Form1Controller extends Controller
     public function store(Form1Request $request)
     {
         
-        $form1 = new Form1;
+        $form1 = new Form3;
         /*datos generales*/
         $form1->user_id = Auth::id();
-        $id = IdGenerator::generate(['table'=>'form1','field' => 'cod_form', 'length' => 10, 'prefix' => 'UGF1-']);
+        $id = IdGenerator::generate(['table'=>'form3','field' => 'cod_form', 'length' => 10, 'prefix' => 'UGF3-']);
         $form1->cod_form = $id;
         $form1->region_id = $request->region_id;
         $form1->provincia_id = $request->provincia_id;
@@ -177,24 +175,24 @@ class Form1Controller extends Controller
         
         $form1->save();
         
-        return redirect()->route('form1.edit', $form1-> id)->with('success','Procesado Correctamente');
+        return redirect()->route('form3.edit', $form1-> id)->with('success','Procesado Correctamente');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Form1 $form1)
+    public function show(Form3 $form3)
     {
         $educa = Iedu::all();
-        return view('Fichas.Monitoreo.Form1.show', compact('form1','educa'));
+        return view('Fichas.Monitoreo.Form3.show', compact('form3','educa'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Form1 $form1)
+    public function edit(Form3 $form3)
     {
-        return view('Fichas.Monitoreo.Form1.resp', compact('form1') );
+        return view('Fichas.Monitoreo.Form1.resp', compact('form3') );
     }
 
     /**
@@ -202,13 +200,13 @@ class Form1Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $form1 = Form1::find($id);
+        $form1 = Form3::find($id);
         $form1->obs = $request->input('obs');
         $form1->recomend = $request->input('recomend');
         $form1->cmejora = $request->input('cmejora');
         $form1->update();
 
-        return redirect()->route('form1.index')->with('success','Enviado Correctamente');
+        return redirect()->route('form3.index')->with('success','Enviado Correctamente');
     }
 
     /**
@@ -217,6 +215,6 @@ class Form1Controller extends Controller
     public function destroy(string $id)
     {
         $form1->delete();
-        return redirect()->route('form1.index')->with('success','Enviado Correctamente');
+        return redirect()->route('form3.index')->with('success','Enviado Correctamente');
     }
 }
