@@ -1,7 +1,7 @@
 @include ('layouts.style')
 @extends('layouts.master')
 @section('content')
-<title>Paragon+ | Ficha 3 - 1 </title>
+<title>Paragon+ | Ficha 1 - 1 </title>
 <div class="container-fluid px-4 pb-5">
     <div class="py-3">
         <a href="{{ route('inicio') }}" class="href-closed">
@@ -13,10 +13,10 @@
     </div>
 
     <div class="container">
-        <span class="badge rounded-pill sp-atendido">Ficha 3 - 1</span>
+        <span class="badge rounded-pill sp-atendido">Ficha 1 - 1</span>
         <div class="d-flex align-items-end justify-content-between pb-4">
             <h5 class="fw-semibold">Ficha de monitoreo planificación curricular</h5>
-            <form action="{{route ('form3.update', $form3->id)}}" method="post">
+            <form action="{{route ('form1.update', $form1->id)}}" method="post">
                 @csrf
                 @method('PUT')
                 <div>
@@ -27,12 +27,12 @@
             <div class="row">
                 <div class="col-md-4 pb-4">
                     <div class="car-inf1 align-items-center">
-                        <p class="m-0">{{ $form3->iedu->cod_mod }}</p>
-                        <h6>{{ $form3->iedu->name }}</h6>
+                        <p class="m-0">{{ $form1->iedu->cod_mod }}</p>
+                        <h6>{{ $form1->iedu->name }}</h6>
                         <hr>
-                        <h6>{{ $form3->tipopro->name }}</h6>
-                        <h5 class="m-0">{{ $form3->last_name }} {{ $form3->name }}</h5>
-                        <p class="m-0 pt-2"><i class="fa-solid fa-address-card"></i>&nbsp;{{ $form3 ['nro_dni'] }}</p>
+                        <h6>{{ $form1->tipopro->name }}</h6>
+                        <h5 class="m-0">{{ $form1->last_name }} {{ $form1->name }}</h5>
+                        <p class="m-0 pt-2"><i class="fa-solid fa-address-card"></i>&nbsp;{{ $form1 ['nro_dni'] }}</p>
                     </div>
                 </div>
                 <div class="col-md-4 pb-4">
@@ -42,16 +42,16 @@
                             <h6>
                                 <?php
                                     switch ( true ) {
-                                        case (  $form3->rsta_1 >= 0 &&  $form3->rsta_1 <= 2):
+                                        case (  $form1->rsta_1 >= 0 &&  $form1->rsta_1 <= 7):
                                             echo '<span class="badge sp-finalizado">Necesita mejorar</span>';
                                             break;
-                                        case (  $form3->rsta_1 >= 3 &&  $form3->rsta_1 <= 4):
+                                        case (  $form1->rsta_1 >= 8 &&  $form1->rsta_1 <= 10):
                                             echo '<span class="badge sp-naranja">En proceso</span>';
                                             break;
-                                        case (  $form3->rsta_1 >= 5 &&  $form3->rsta_1 <= 7):
+                                        case (  $form1->rsta_1 >= 11 &&  $form1->rsta_1 <= 13):
                                             echo '<span class="badge sp-nuevo">Suficiente</span>';
                                             break;
-                                        case (  $form3->rsta_1 >= 8 &&  $form3->rsta_1 <= 10):
+                                        case (  $form1->rsta_1 >= 14 &&  $form1->rsta_1 <= 15):
                                             echo '<span class="badge sp-atendido">Destacado</span>';
                                             break;
                                     }
@@ -65,7 +65,7 @@
                         </div>
                         <h5>Valoración planificación anual</h5>
                         <div class="d-flex">
-                            <h1>{{ $form3->rsta_1 }}</h1>
+                            <h1>{{ $form1->rsta_1 }}</h1>
                         </div>
                     </div>
                 </div>
@@ -76,16 +76,16 @@
                             <h6>
                                 <?php
                                     switch ( true ) {
-                                        case (  $form3->rsta_2 >= 0 &&  $form3->rsta_2 <= 7):
+                                        case (  $form1->rsta_2 >= 0 &&  $form1->rsta_2 <= 7):
                                             echo '<span class="badge sp-finalizado">Necesita mejorar</span>';
                                             break;
-                                        case (  $form3->rsta_2 >= 8 &&  $form3->rsta_2 <= 10):
+                                        case (  $form1->rsta_2 >= 8 &&  $form1->rsta_2 <= 10):
                                             echo '<span class="badge sp-naranja">En proceso</span>';
                                             break;
-                                        case (  $form3->rsta_2 >= 11 &&  $form3->rsta_2 <= 13):
+                                        case (  $form1->rsta_2 >= 11 &&  $form1->rsta_2 <= 13):
                                             echo '<span class="badge sp-nuevo">Suficiente</span>';
                                             break;
-                                        case (  $form3->rsta_2 >= 14 &&  $form3->rsta_2 <= 15):
+                                        case (  $form1->rsta_2 >= 14 &&  $form1->rsta_2 <= 15):
                                             echo '<span class="badge sp-atendido">Destacado</span>';
                                             break;
                                     }
@@ -98,7 +98,7 @@
                         </div>
                         <h5>Valoración unidad didáctica</h5>
                         <div class="d-flex">
-                            <h1>{{ $form3->rsta_2 }}</h1>
+                            <h1>{{ $form1->rsta_2 }}</h1>
                         </div>
                     </div>
                 </div>

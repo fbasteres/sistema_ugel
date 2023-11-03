@@ -30,4 +30,9 @@ class Form1 extends Model
     {
         return $this->hasOne(TipoPro::class, 'id', 'tipoPro_id');
     }
+
+    public function Caract(): HasOne
+    {
+        return $this->hasOne(TipoPro::class, 'id', 'carac_id');
+    }
 }

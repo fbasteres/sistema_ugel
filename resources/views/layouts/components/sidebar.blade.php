@@ -22,7 +22,7 @@
                         
                         <ul class="sidebar-dropdown-menu">
                             <li class="sidebar-dropdown-menu-item">
-                                <a href="#">Monitoreo materiales educativos</a>
+                                <a href="{{route ('alm1.create')}}">Monitoreo materiales educativos</a>
                             </li>
                         </ul>
                     </li>

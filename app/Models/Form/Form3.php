@@ -4,6 +4,9 @@ namespace App\Models\Form;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Models\Iedu;
+use App\Models\TipoPro;
 
 class Form3 extends Model
 {

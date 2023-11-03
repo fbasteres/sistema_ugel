@@ -21,8 +21,9 @@ return new class extends Migration
             $table->foreignId('ugel_id');
             $table->foreignId('iedu_id');
             $table->foreignId('carac_id');
-            $table->foreignId('grado_id');
-            $table->foreignId('seccion_id');
+            $table->string('au_name');
+            $table->foreignId('ciclo_id');
+            $table->foreignId('edadn_id');
             $table->foreignId('turno_id');
             $table->date('fecha');
             $table->char('nroVisita');
@@ -56,16 +57,7 @@ return new class extends Migration
             $table->text('vpa_coment_pre9')->nullable();
             $table->boolean('vpa_pre10');
             $table->text('vpa_coment_pre10')->nullable();
-            $table->boolean('vpa_pre11');
-            $table->text('vpa_coment_pre11')->nullable();
-            $table->boolean('vpa_pre12');
-            $table->text('vpa_coment_pre12')->nullable();
-            $table->boolean('vpa_pre13');
-            $table->text('vpa_coment_pre13')->nullable();
-            $table->boolean('vpa_pre14');
-            $table->text('vpa_coment_pre14')->nullable();
-            $table->boolean('vpa_pre15');
-            $table->text('vpa_coment_pre15')->nullable();
+            
 
             /*Verificacion de la Unidad didactica */
             $table->boolean('vud_pre1');
@@ -98,9 +90,11 @@ return new class extends Migration
             $table->text('vud_coment_pre14')->nullable();
             $table->boolean('vud_pre15');
             $table->text('vud_coment_pre15')->nullable();
+
             $table->text('obs')->nullable();
             $table->text('recomend')->nullable();
             $table->text('cmejora')->nullable();
+            
             $table->text('rsta_1')->nullable();
             $table->text('rsta_2')->nullable();
             

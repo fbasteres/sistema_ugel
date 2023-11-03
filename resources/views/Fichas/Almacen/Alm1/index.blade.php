@@ -1,7 +1,7 @@
 @include ('layouts.style')
 @extends('layouts.master')
 @section('content')
-<title>Paragon+ | Ficha 1 - 3 </title>
+<title>Paragon+ | Ficha 1 - 1 </title>
 <div class="container-fluid px-4 pb-5">
     <div class="py-3">
         <a href="{{ route('inicio') }}" class="href-closed">
@@ -27,7 +27,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($formulario3 as $formulario)
+                    @foreach ($formulario1 as $formulario)
                     <tr>
                         <td>{{ $formulario['nro_dni']}}</td>
                         <td>{{ $formulario['last_name']}} {{ $formulario['name']}}</td>
@@ -36,16 +36,16 @@
                         <td>
                             <?php
                                     switch ( true ) {
-                                        case (  $formulario->rsta_1 >= 0 &&  $formulario->rsta_1 <= 2):
+                                        case (  $formulario->rsta_1 >= 0 &&  $formulario->rsta_1 <= 7):
                                             echo '<span class="badge sp-finalizado">Necesita mejorar</span>';
                                             break;
-                                        case (  $formulario->rsta_1 >= 3 &&  $formulario->rsta_1 <= 4):
+                                        case (  $formulario->rsta_1 >= 8 &&  $formulario->rsta_1 <= 10):
                                             echo '<span class="badge sp-naranja">En proceso</span>';
                                             break;
-                                        case (  $formulario->rsta_1 >= 5 &&  $formulario->rsta_1 <= 7):
+                                        case (  $formulario->rsta_1 >= 11 &&  $formulario->rsta_1 <= 13):
                                             echo '<span class="badge sp-nuevo">Suficiente</span>';
                                             break;
-                                        case (  $formulario->rsta_1 >= 8 &&  $formulario->rsta_1 <= 10):
+                                        case (  $formulario->rsta_1 >= 14 &&  $formulario->rsta_1 <= 15):
                                             echo '<span class="badge sp-atendido">Destacado</span>';
                                             break;
                                     }
@@ -70,7 +70,7 @@
                             ?>
                         </td>
                         <td>
-                            <a href="{{route ('form3.show', $formulario -> id )}}" class="btn btn-acciones">
+                            <a href="{{route ('form1.show', $formulario -> id )}}" class="btn btn-acciones">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
                             

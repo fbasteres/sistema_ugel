@@ -16,7 +16,9 @@ use App\Models\Grado;
 use App\Models\Seccion;
 use App\Models\Turno;
 use App\Models\TipoPro;
-use App\Models\Iedu;    
+use App\Models\Iedu;
+use App\Models\Ciclo;
+use App\Models\Edadn;    
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class Form3Controller extends Controller
@@ -28,16 +30,16 @@ class Form3Controller extends Controller
 
     public function index()
     {
-        $formulario1 = Form3::where('user_id', Auth::id())-> with('iedu')->get();
+        $formulario3 = Form3::where('user_id', Auth::id())-> with('iedu')->get();
         //$formulario1 = Form3::with('iedu')->get();
-        return view('Fichas.Monitoreo.Form1.index', compact ('formulario1'));
+        return view('Fichas.Monitoreo.Form3.index', compact ('formulario3'));
     }
 
     public function reporte()
     {
         //$totalForm1 = Form1::where('user_id')->count();
-        $formulario1 = Form3::with('iedu')->get();
-        return view('Fichas.Monitoreo.Form1.index', compact ('formulario1'));
+        $formulario3 = Form3::with('iedu')->get();
+        return view('Fichas.Monitoreo.Form1.index', compact ('formulario3'));
     }
 
     /**
@@ -55,6 +57,8 @@ class Form3Controller extends Controller
         $turno = Turno::all();
         $tipopro = TipoPro::all();
         $iedu = Iedu::all();
+        $ciclo = Ciclo::all();
+        $edadn = Edadn::all();
 
         return view('Fichas.Monitoreo.Form3.create',[
             'departamentos' => $departamentos,
@@ -67,6 +71,8 @@ class Form3Controller extends Controller
             'turno' => $turno,
             'tipopro' => $tipopro,
             'iedu' => $iedu,
+            'ciclo' => $ciclo,
+            'edadn' => $edadn,
 
         ]);
     }
@@ -75,107 +81,98 @@ class Form3Controller extends Controller
      * Store a newly created resource in storage.
      */
     
-    public function store(Form1Request $request)
+    public function store(Form3Request $request)
     {
         
-        $form1 = new Form3;
+        $form3 = new Form3;
         /*datos generales*/
-        $form1->user_id = Auth::id();
+        $form3->user_id = Auth::id();
         $id = IdGenerator::generate(['table'=>'form3','field' => 'cod_form', 'length' => 10, 'prefix' => 'UGF3-']);
-        $form1->cod_form = $id;
-        $form1->region_id = $request->region_id;
-        $form1->provincia_id = $request->provincia_id;
-        $form1->distrito_id = $request->distrito_id;
-        $form1->ugel_id = $request->ugel_id;
-        $form1->iedu_id = $request->iedu_id;
-        $form1->carac_id = $request->carac_id;
-        $form1->grado_id = $request->grado_id;
-        $form1->seccion_id = $request->seccion_id;
-        $form1->turno_id = $request->turno_id;
-        $form1->fecha = $request->fecha;
-        $form1->nroVisita = $request->nroVisita;
-        $form1->hrInicio = $request->hrInicio;
-        $form1->hrFin = $request->hrFin;
-        $form1->name = $request->name;
-        $form1->last_name = $request->last_name;
-        $form1->nro_dni = $request->nro_dni;
-        $form1->tipoPro_id = $request->tipoPro_id;
+        $form3->cod_form = $id;
+        $form3->region_id = $request->region_id;
+        $form3->provincia_id = $request->provincia_id;
+        $form3->distrito_id = $request->distrito_id;
+        $form3->ugel_id = $request->ugel_id;
+        $form3->iedu_id = $request->iedu_id;
+        $form3->carac_id = $request->carac_id;
+        $form3->au_name = $request->au_name;
+        $form3->ciclo_id = $request->ciclo_id;
+        $form3->edadn_id = $request->edadn_id;
+        $form3->turno_id = $request->turno_id;
+        $form3->fecha = $request->fecha;
+        $form3->nroVisita = $request->nroVisita;
+        $form3->hrInicio = $request->hrInicio;
+        $form3->hrFin = $request->hrFin;
+        $form3->name = $request->name;
+        $form3->last_name = $request->last_name;
+        $form3->nro_dni = $request->nro_dni;
+        $form3->tipoPro_id = $request->tipoPro_id;
         /* Verificacion de la planificación anual*/
-        $form1->vpa_pre1 = $request->vpa_pre1;
-        $form1->vpa_coment_pre1 = $request->vpa_coment_pre1;
-        $form1->vpa_pre2 = $request->vpa_pre2;
-        $form1->vpa_coment_pre2 = $request->vpa_coment_pre2;
-        $form1->vpa_pre3 = $request->vpa_pre3;
-        $form1->vpa_coment_pre3 = $request->vpa_coment_pre3;
-        $form1->vpa_pre4 = $request->vpa_pre4;
-        $form1->vpa_coment_pre4 = $request->vpa_coment_pre4;
-        $form1->vpa_pre5 = $request->vpa_pre5;
-        $form1->vpa_coment_pre5 = $request->vpa_coment_pre5;
-        $form1->vpa_pre6 = $request->vpa_pre6;
-        $form1->vpa_coment_pre6 = $request->vpa_coment_pre6;
-        $form1->vpa_pre7 = $request->vpa_pre7;
-        $form1->vpa_coment_pre7 = $request->vpa_coment_pre7;
-        $form1->vpa_pre8 = $request->vpa_pre8;
-        $form1->vpa_coment_pre8 = $request->vpa_coment_pre8;
-        $form1->vpa_pre9 = $request->vpa_pre9;
-        $form1->vpa_coment_pre9 = $request->vpa_coment_pre9;
-        $form1->vpa_pre10 = $request->vpa_pre10;
-        $form1->vpa_coment_pre10 = $request->vpa_coment_pre10;
-        $form1->vpa_pre11 = $request->vpa_pre11;
-        $form1->vpa_coment_pre11 = $request->vpa_coment_pre11;
-        $form1->vpa_pre12 = $request->vpa_pre12;
-        $form1->vpa_coment_pre12 = $request->vpa_coment_pre12;
-        $form1->vpa_pre13 = $request->vpa_pre13;
-        $form1->vpa_coment_pre13 = $request->vpa_coment_pre13;
-        $form1->vpa_pre14 = $request->vpa_pre14;
-        $form1->vpa_coment_pre14 = $request->vpa_coment_pre14;
-        $form1->vpa_pre15 = $request->vpa_pre15;
-        $form1->vpa_coment_pre15 = $request->vpa_coment_pre15;
+        $form3->vpa_pre1 = $request->vpa_pre1;
+        $form3->vpa_coment_pre1 = $request->vpa_coment_pre1;
+        $form3->vpa_pre2 = $request->vpa_pre2;
+        $form3->vpa_coment_pre2 = $request->vpa_coment_pre2;
+        $form3->vpa_pre3 = $request->vpa_pre3;
+        $form3->vpa_coment_pre3 = $request->vpa_coment_pre3;
+        $form3->vpa_pre4 = $request->vpa_pre4;
+        $form3->vpa_coment_pre4 = $request->vpa_coment_pre4;
+        $form3->vpa_pre5 = $request->vpa_pre5;
+        $form3->vpa_coment_pre5 = $request->vpa_coment_pre5;
+        $form3->vpa_pre6 = $request->vpa_pre6;
+        $form3->vpa_coment_pre6 = $request->vpa_coment_pre6;
+        $form3->vpa_pre7 = $request->vpa_pre7;
+        $form3->vpa_coment_pre7 = $request->vpa_coment_pre7;
+        $form3->vpa_pre8 = $request->vpa_pre8;
+        $form3->vpa_coment_pre8 = $request->vpa_coment_pre8;
+        $form3->vpa_pre9 = $request->vpa_pre9;
+        $form3->vpa_coment_pre9 = $request->vpa_coment_pre9;
+        $form3->vpa_pre10 = $request->vpa_pre10;
+        $form3->vpa_coment_pre10 = $request->vpa_coment_pre10;
+
         /*Verificacion 2*/
-        $form1->vud_pre1 = $request->vud_pre1;
-        $form1->vud_coment_pre1 = $request->vud_coment_pre1;
-        $form1->vud_pre2 = $request->vud_pre2;
-        $form1->vud_coment_pre2 = $request->vud_coment_pre2;
-        $form1->vud_pre3 = $request->vud_pre3;
-        $form1->vud_coment_pre3 = $request->vud_coment_pre3;
-        $form1->vud_pre4 = $request->vud_pre4;
-        $form1->vud_coment_pre4 = $request->vud_coment_pre4;
-        $form1->vud_pre5 = $request->vud_pre5;
-        $form1->vud_coment_pre5 = $request->vud_coment_pre5;
-        $form1->vud_pre6 = $request->vud_pre6;
-        $form1->vud_coment_pre6 = $request->vud_coment_pre6;
-        $form1->vud_pre7 = $request->vud_pre7;
-        $form1->vud_coment_pre7 = $request->vud_coment_pre7;
-        $form1->vud_pre8 = $request->vud_pre8;
-        $form1->vud_coment_pre8 = $request->vud_coment_pre8;
-        $form1->vud_pre9 = $request->vud_pre9;
-        $form1->vud_coment_pre9 = $request->vud_coment_pre9;
-        $form1->vud_pre10 = $request->vud_pre10;
-        $form1->vud_coment_pre10 = $request->vud_coment_pre10;
-        $form1->vud_pre11 = $request->vud_pre11;
-        $form1->vud_coment_pre11 = $request->vud_coment_pre11;
-        $form1->vud_pre12 = $request->vud_pre12;
-        $form1->vud_coment_pre12 = $request->vud_coment_pre12;
-        $form1->vud_pre13 = $request->vud_pre13;
-        $form1->vud_coment_pre13 = $request->vud_coment_pre13;
-        $form1->vud_pre14 = $request->vud_pre14;
-        $form1->vud_coment_pre14 = $request->vud_coment_pre14;
-        $form1->vud_pre15 = $request->vud_pre15;
-        $form1->vud_coment_pre15 = $request->vud_coment_pre15;
+        $form3->vud_pre1 = $request->vud_pre1;
+        $form3->vud_coment_pre1 = $request->vud_coment_pre1;
+        $form3->vud_pre2 = $request->vud_pre2;
+        $form3->vud_coment_pre2 = $request->vud_coment_pre2;
+        $form3->vud_pre3 = $request->vud_pre3;
+        $form3->vud_coment_pre3 = $request->vud_coment_pre3;
+        $form3->vud_pre4 = $request->vud_pre4;
+        $form3->vud_coment_pre4 = $request->vud_coment_pre4;
+        $form3->vud_pre5 = $request->vud_pre5;
+        $form3->vud_coment_pre5 = $request->vud_coment_pre5;
+        $form3->vud_pre6 = $request->vud_pre6;
+        $form3->vud_coment_pre6 = $request->vud_coment_pre6;
+        $form3->vud_pre7 = $request->vud_pre7;
+        $form3->vud_coment_pre7 = $request->vud_coment_pre7;
+        $form3->vud_pre8 = $request->vud_pre8;
+        $form3->vud_coment_pre8 = $request->vud_coment_pre8;
+        $form3->vud_pre9 = $request->vud_pre9;
+        $form3->vud_coment_pre9 = $request->vud_coment_pre9;
+        $form3->vud_pre10 = $request->vud_pre10;
+        $form3->vud_coment_pre10 = $request->vud_coment_pre10;
+        $form3->vud_pre11 = $request->vud_pre11;
+        $form3->vud_coment_pre11 = $request->vud_coment_pre11;
+        $form3->vud_pre12 = $request->vud_pre12;
+        $form3->vud_coment_pre12 = $request->vud_coment_pre12;
+        $form3->vud_pre13 = $request->vud_pre13;
+        $form3->vud_coment_pre13 = $request->vud_coment_pre13;
+        $form3->vud_pre14 = $request->vud_pre14;
+        $form3->vud_coment_pre14 = $request->vud_coment_pre14;
+        $form3->vud_pre15 = $request->vud_pre15;
+        $form3->vud_coment_pre15 = $request->vud_coment_pre15;
 
-        $form1->rsta_1 = $request->vpa_pre1 + $request->vpa_pre2 + $request->vpa_pre3 + $request->vpa_pre4
+        $form3->rsta_1 = $request->vpa_pre1 + $request->vpa_pre2 + $request->vpa_pre3 + $request->vpa_pre4
         + $request->vpa_pre5 + $request->vpa_pre6 + $request->vpa_pre7 + $request->vpa_pre8 + $request->vpa_pre9
-        + $request->vpa_pre10 + $request->vpa_pre11 + $request->vpa_pre12 + $request->vpa_pre13 + $request->vpa_pre14
-        + $request->vpa_pre15;
+        + $request->vpa_pre10;
 
-        $form1->rsta_2 = $request->vud_pre1 + $request->vud_pre2 + $request->vud_pre3 + $request->vud_pre4
+        $form3->rsta_2 = $request->vud_pre1 + $request->vud_pre2 + $request->vud_pre3 + $request->vud_pre4
         + $request->vud_pre5 + $request->vud_pre6 + $request->vud_pre7 + $request->vud_pre8 + $request->vud_pre9
         + $request->vud_pre10 + $request->vud_pre11 + $request->vud_pre12 + $request->vud_pre13 + $request->vud_pre14
         + $request->vud_pre15;
         
-        $form1->save();
+        $form3->save();
         
-        return redirect()->route('form3.edit', $form1-> id)->with('success','Procesado Correctamente');
+        return redirect()->route('form3.edit', $form3-> id)->with('success','Procesado Correctamente');
     }
 
     /**
@@ -192,7 +189,7 @@ class Form3Controller extends Controller
      */
     public function edit(Form3 $form3)
     {
-        return view('Fichas.Monitoreo.Form1.resp', compact('form3') );
+        return view('Fichas.Monitoreo.Form3.resp', compact('form3') );
     }
 
     /**
@@ -200,11 +197,11 @@ class Form3Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $form1 = Form3::find($id);
-        $form1->obs = $request->input('obs');
-        $form1->recomend = $request->input('recomend');
-        $form1->cmejora = $request->input('cmejora');
-        $form1->update();
+        $form3 = Form3::find($id);
+        $form3->obs = $request->input('obs');
+        $form3->recomend = $request->input('recomend');
+        $form3->cmejora = $request->input('cmejora');
+        $form3->update();
 
         return redirect()->route('form3.index')->with('success','Enviado Correctamente');
     }

@@ -311,7 +311,11 @@ body {
     padding: 2rem;
     height: 100%;
 }
-
+.car-inf h5{
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
 
 
 .car-inf2-gris{
