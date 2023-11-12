@@ -24,11 +24,24 @@ class RegisterRequest extends FormRequest
         return [
             'name' => 'required',
             'last_name' => 'required',
-            'dni' => 'required',
+            'dni' => 'required|unique:users,dni',
             'username' => 'required|unique:users,username',
             'email' => 'required|unique:users,email',
             'password' => 'required|min:8',
             'password_confirmation' => 'required|same:password',
         ];
+
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Agrega el nombre del estudiante.',
+            'dni.required' => 'Agregar DNI.',
+            'dni.unique' => 'Número de DNI, ya se encuentra registrado.',
+            'email.unique' => 'Correo, ya se encuentra registrado.',
+            'password_confirmation.same' => 'Contraseña no coinciden.',
+        ];
+
     }
 }

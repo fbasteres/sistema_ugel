@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
         'dni' => '76006459',
         'username' => 'admin',
         'email' => 'admin@agptarma.com',
-        'password' => bcrypt('Tarma2021'),
+         'password'=> 'admin',
       ]);
     }
 }

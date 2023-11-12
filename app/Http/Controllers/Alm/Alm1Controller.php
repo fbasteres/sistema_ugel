@@ -3,7 +3,19 @@
 namespace App\Http\Controllers\Alm;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests\Alm1Request;
+use App\Models\Alm\Alm1;
+use App\Models\Departamentos;
+use App\Models\Provincias;
+use App\Models\Distritos;
+use App\Models\Ugel;
+use App\Models\Iedu;
+use App\Models\Grado;
+use App\Models\Seccion;
+use App\Models\Turno;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class Alm1Controller extends Controller
 {
@@ -14,15 +26,15 @@ class Alm1Controller extends Controller
 
     public function index()
     {
-        $formulario1 = Form1::where('user_id', Auth::id())-> with('iedu')->get();
-        //$formulario1 = Form1::with('iedu')->get();
-        return view('Fichas.Monitoreo.Form1.index', compact ('formulario1'));
+        $foalm1 = Alm1::where('user_id', Auth::id())-> with('iedu')->get();
+        //$formulario1 = alm1::with('iedu')->get();
+        return view('Fichas.Almacen.Alm1.index', compact ('foalm1'));
     }
 
     public function reporte()
     {
-        $formulario1 = Form1::with('iedu')->get();
-        return view('Fichas.Monitoreo.Form1.index', compact ('formulario1'));
+        $formulario1 = alm1::with('iedu')->get();
+        return view('Fichas.Monitoreo.alm1.index', compact ('formulario1'));
     }
 
     /**
@@ -34,25 +46,20 @@ class Alm1Controller extends Controller
         $provincias = Provincias::all();
         $distritos = Distritos::all();
         $ugel = Ugel::all();
-        $caract = Caracteristica::all();
+        $iedu = Iedu::all();
         $grado = Grado::all();
         $seccion = Seccion::all();
         $turno = Turno::all();
-        $tipopro = TipoPro::all();
-        $iedu = Iedu::all();
 
-        return view('Fichas.Almacen.Alm1.create',[
+        return view('Fichas.Almacen.Alm1.create', [
             'departamentos' => $departamentos,
             'provincias' => $provincias,
             'distritos' => $distritos,
             'ugel' => $ugel,
-            'caract' => $caract, 
+            'iedu' => $iedu,
             'grado' => $grado,
             'seccion' => $seccion,
             'turno' => $turno,
-            'tipopro' => $tipopro,
-            'iedu' => $iedu,
-
         ]);
     }
 
@@ -60,124 +67,125 @@ class Alm1Controller extends Controller
      * Store a newly created resource in storage.
      */
     
-    public function store(Form1Request $request)
+    public function store(Alm1Request $request)
     {
         
-        $form1 = new Form1;
+        $alm1 = new Alm1;
         /*datos generales*/
-        $form1->user_id = Auth::id();
-        $id = IdGenerator::generate(['table'=>'form1','field' => 'cod_form', 'length' => 10, 'prefix' => 'UGF1-']);
-        $form1->cod_form = $id;
-        $form1->region_id = $request->region_id;
-        $form1->provincia_id = $request->provincia_id;
-        $form1->distrito_id = $request->distrito_id;
-        $form1->ugel_id = $request->ugel_id;
-        $form1->iedu_id = $request->iedu_id;
-        $form1->carac_id = $request->carac_id;
-        $form1->grado_id = $request->grado_id;
-        $form1->seccion_id = $request->seccion_id;
-        $form1->turno_id = $request->turno_id;
-        $form1->fecha = $request->fecha;
-        $form1->nroVisita = $request->nroVisita;
-        $form1->hrInicio = $request->hrInicio;
-        $form1->hrFin = $request->hrFin;
-        $form1->name = $request->name;
-        $form1->last_name = $request->last_name;
-        $form1->nro_dni = $request->nro_dni;
-        $form1->tipoPro_id = $request->tipoPro_id;
-        /* Verificacion de la planificación anual*/
-        $form1->vpa_pre1 = $request->vpa_pre1;
-        $form1->vpa_coment_pre1 = $request->vpa_coment_pre1;
-        $form1->vpa_pre2 = $request->vpa_pre2;
-        $form1->vpa_coment_pre2 = $request->vpa_coment_pre2;
-        $form1->vpa_pre3 = $request->vpa_pre3;
-        $form1->vpa_coment_pre3 = $request->vpa_coment_pre3;
-        $form1->vpa_pre4 = $request->vpa_pre4;
-        $form1->vpa_coment_pre4 = $request->vpa_coment_pre4;
-        $form1->vpa_pre5 = $request->vpa_pre5;
-        $form1->vpa_coment_pre5 = $request->vpa_coment_pre5;
-        $form1->vpa_pre6 = $request->vpa_pre6;
-        $form1->vpa_coment_pre6 = $request->vpa_coment_pre6;
-        $form1->vpa_pre7 = $request->vpa_pre7;
-        $form1->vpa_coment_pre7 = $request->vpa_coment_pre7;
-        $form1->vpa_pre8 = $request->vpa_pre8;
-        $form1->vpa_coment_pre8 = $request->vpa_coment_pre8;
-        $form1->vpa_pre9 = $request->vpa_pre9;
-        $form1->vpa_coment_pre9 = $request->vpa_coment_pre9;
-        $form1->vpa_pre10 = $request->vpa_pre10;
-        $form1->vpa_coment_pre10 = $request->vpa_coment_pre10;
-        $form1->vpa_pre11 = $request->vpa_pre11;
-        $form1->vpa_coment_pre11 = $request->vpa_coment_pre11;
-        $form1->vpa_pre12 = $request->vpa_pre12;
-        $form1->vpa_coment_pre12 = $request->vpa_coment_pre12;
-        $form1->vpa_pre13 = $request->vpa_pre13;
-        $form1->vpa_coment_pre13 = $request->vpa_coment_pre13;
-        $form1->vpa_pre14 = $request->vpa_pre14;
-        $form1->vpa_coment_pre14 = $request->vpa_coment_pre14;
-        $form1->vpa_pre15 = $request->vpa_pre15;
-        $form1->vpa_coment_pre15 = $request->vpa_coment_pre15;
-        /*Verificacion 2*/
-        $form1->vud_pre1 = $request->vud_pre1;
-        $form1->vud_coment_pre1 = $request->vud_coment_pre1;
-        $form1->vud_pre2 = $request->vud_pre2;
-        $form1->vud_coment_pre2 = $request->vud_coment_pre2;
-        $form1->vud_pre3 = $request->vud_pre3;
-        $form1->vud_coment_pre3 = $request->vud_coment_pre3;
-        $form1->vud_pre4 = $request->vud_pre4;
-        $form1->vud_coment_pre4 = $request->vud_coment_pre4;
-        $form1->vud_pre5 = $request->vud_pre5;
-        $form1->vud_coment_pre5 = $request->vud_coment_pre5;
-        $form1->vud_pre6 = $request->vud_pre6;
-        $form1->vud_coment_pre6 = $request->vud_coment_pre6;
-        $form1->vud_pre7 = $request->vud_pre7;
-        $form1->vud_coment_pre7 = $request->vud_coment_pre7;
-        $form1->vud_pre8 = $request->vud_pre8;
-        $form1->vud_coment_pre8 = $request->vud_coment_pre8;
-        $form1->vud_pre9 = $request->vud_pre9;
-        $form1->vud_coment_pre9 = $request->vud_coment_pre9;
-        $form1->vud_pre10 = $request->vud_pre10;
-        $form1->vud_coment_pre10 = $request->vud_coment_pre10;
-        $form1->vud_pre11 = $request->vud_pre11;
-        $form1->vud_coment_pre11 = $request->vud_coment_pre11;
-        $form1->vud_pre12 = $request->vud_pre12;
-        $form1->vud_coment_pre12 = $request->vud_coment_pre12;
-        $form1->vud_pre13 = $request->vud_pre13;
-        $form1->vud_coment_pre13 = $request->vud_coment_pre13;
-        $form1->vud_pre14 = $request->vud_pre14;
-        $form1->vud_coment_pre14 = $request->vud_coment_pre14;
-        $form1->vud_pre15 = $request->vud_pre15;
-        $form1->vud_coment_pre15 = $request->vud_coment_pre15;
+        $alm1->user_id = Auth::id();
+        $id = IdGenerator::generate(['table'=>'alm1','field' => 'cod_form', 'length' => 10, 'prefix' => 'UGA1-']);
+        $alm1->cod_form = $id;
+        $alm1->region_id = $request->region_id;
+        $alm1->provincia_id = $request->provincia_id;
+        $alm1->distrito_id = $request->distrito_id;
+        $alm1->ugel_id = $request->ugel_id;
+        $alm1->iedu_id = $request->iedu_id;
+        $alm1->es_lastname = $request->es_lastname;
+        $alm1->es_name = $request->es_name;
+        $alm1->dr_lastname = $request->dr_lastname;
+        $alm1->dr_name = $request->dr_name;
+        $alm1->dr_telf = $request->dr_telf;
+        $alm1->doc_lastname = $request->doc_lastname;
+        $alm1->doc_name = $request->doc_name;
+        $alm1->doc_telf = $request->doc_telf;
+        $alm1->estd_ma = $request->estd_ma;
+        $alm1->estd_as = $request->estd_as;
+        $alm1->estd_tr = $request->estd_tr;
+        $alm1->grado_id = $request->grado_id;
+        $alm1->seccion_id = $request->seccion_id;
+        $alm1->turno_id = $request->turno_id;
+        $alm1->fecha = $request->fecha;
+        $alm1->hrInicio = $request->hrInicio;
+        $alm1->hrFin = $request->hrFin;
+     
+        /* Distribucion de materiales */
+        $alm1->rmaed_pre1 = $request->rmaed_pre1;
+        $alm1->rmaed_coment_pre1 = $request->rmaed_coment_pre1;
+        $alm1->rmaed_pre2 = $request->rmaed_pre2;
+        $alm1->rmaed_coment_pre2 = $request->rmaed_coment_pre2;
+        $alm1->rmaed_pre3 = $request->rmaed_pre3;
+        $alm1->rmaed_coment_pre3 = $request->rmaed_coment_pre3;
+        $alm1->rmaed_pre4 = $request->rmaed_pre4;
+        $alm1->rmaed_coment_pre4 = $request->rmaed_coment_pre4;
+        $alm1->rmaed_pre5 = $request->rmaed_pre5;
+        $alm1->rmaed_coment_pre5 = $request->rmaed_coment_pre5;
+        $alm1->rmaed_pre6 = $request->rmaed_pre6;
+        $alm1->rmaed_coment_pre6 = $request->rmaed_coment_pre6;
+        $alm1->rmaed_pre7 = $request->rmaed_pre7;
+        $alm1->rmaed_coment_pre7 = $request->rmaed_coment_pre7;
+        $alm1->rmaed_pre8 = $request->rmaed_pre8;
+        $alm1->rmaed_coment_pre8 = $request->rmaed_coment_pre8;
+        $alm1->rmaed_pre9 = $request->rmaed_pre9;
+        $alm1->rmaed_coment_pre9 = $request->rmaed_coment_pre9;
+        $alm1->rmaed_pre10 = $request->rmaed_pre10;
+        $alm1->rmaed_coment_pre10 = $request->rmaed_coment_pre10;
+        $alm1->rmaed_pre11 = $request->rmaed_pre11;
+        $alm1->rmaed_coment_pre11 = $request->rmaed_coment_pre11;
+        $alm1->rmaed_pre12 = $request->rmaed_pre12;
+        $alm1->rmaed_coment_pre12 = $request->rmaed_coment_pre12;
+        $alm1->rmaed_pre13 = $request->rmaed_pre13;
+        $alm1->rmaed_coment_pre13 = $request->rmaed_coment_pre13;
+        $alm1->rmaed_pre14 = $request->rmaed_pre14;
+        $alm1->rmaed_coment_pre14 = $request->rmaed_coment_pre14;
+        $alm1->rmaed_pre15 = $request->rmaed_pre15;
+        $alm1->rmaed_coment_pre15 = $request->rmaed_coment_pre15;
+        $alm1->rmaed_pre16 = $request->rmaed_pre16;
+        $alm1->rmaed_coment_pre16 = $request->rmaed_coment_pre16;
+        $alm1->rmaed_pre17 = $request->rmaed_pre17;
+        $alm1->rmaed_coment_pre17 = $request->rmaed_coment_pre17;
+        $alm1->rmaed_pre18 = $request->rmaed_pre18;
+        $alm1->rmaed_coment_pre18 = $request->rmaed_coment_pre18;
+        $alm1->rmaed_pre19 = $request->rmaed_pre19;
+        $alm1->rmaed_coment_pre19 = $request->rmaed_coment_pre19;
+        $alm1->rmaed_pre20 = $request->rmaed_pre20;
+        $alm1->rmaed_coment_pre20 = $request->rmaed_coment_pre20;
+        $alm1->rmaed_pre21 = $request->rmaed_pre21;
+        $alm1->rmaed_coment_pre21 = $request->rmaed_coment_pre21;
 
-        $form1->rsta_1 = $request->vpa_pre1 + $request->vpa_pre2 + $request->vpa_pre3 + $request->vpa_pre4
-        + $request->vpa_pre5 + $request->vpa_pre6 + $request->vpa_pre7 + $request->vpa_pre8 + $request->vpa_pre9
-        + $request->vpa_pre10 + $request->vpa_pre11 + $request->vpa_pre12 + $request->vpa_pre13 + $request->vpa_pre14
-        + $request->vpa_pre15;
+        /* Analisis de la programaciones curriculares */
+        $alm1->apr_pre1 = $request->apr_pre1;
+        $alm1->apr_coment_pre1 = $request->apr_coment_pre1;
+        $alm1->apr_pre2 = $request->apr_pre2;
+        $alm1->apr_coment_pre2 = $request->apr_coment_pre2;
+        $alm1->apr_pre3 = $request->apr_pre3;
+        $alm1->apr_coment_pre3 = $request->apr_coment_pre3;
 
-        $form1->rsta_2 = $request->vud_pre1 + $request->vud_pre2 + $request->vud_pre3 + $request->vud_pre4
-        + $request->vud_pre5 + $request->vud_pre6 + $request->vud_pre7 + $request->vud_pre8 + $request->vud_pre9
-        + $request->vud_pre10 + $request->vud_pre11 + $request->vud_pre12 + $request->vud_pre13 + $request->vud_pre14
-        + $request->vud_pre15;
+        /* Analisis de sesiones de aprendizaje */
+        $alm1->ase_pre1 = $request->ase_pre1;
+        $alm1->ase_coment_pre1 = $request->ase_coment_pre1;
+        $alm1->ase_pre2 = $request->ase_pre2;
+        $alm1->ase_coment_pre2 = $request->ase_coment_pre2;
+        $alm1->ase_pre3 = $request->ase_pre3;
+        $alm1->ase_coment_pre3 = $request->ase_coment_pre3;
+        $alm1->ase_pre4 = $request->ase_pre4;
+        $alm1->ase_coment_pre4 = $request->ase_coment_pre4;
+        $alm1->ase_pre5 = $request->ase_pre5;
+        $alm1->ase_coment_pre5 = $request->ase_coment_pre5;
+        $alm1->ase_pre6 = $request->ase_pre6;
+        $alm1->ase_coment_pre6 = $request->ase_coment_pre6;
+    
+        $alm1->estd_total = $request->estd_ma + $request->estd_as + $request->estd_tr; 
         
-        $form1->save();
+        $alm1->save();
         
-        return redirect()->route('form1.edit', $form1-> id)->with('success','Procesado Correctamente');
+        return redirect()->route('alm1.edit', $alm1-> id)->with('success','Procesado Correctamente');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Form1 $form1)
+    public function show(Alm1 $alm1)
     {
         $educa = Iedu::all();
-        return view('Fichas.Monitoreo.Form1.show', compact('form1','educa'));
+        return view('Fichas.Almacen.Alm1.show', compact('alm1','educa'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Form1 $form1)
+    public function edit(Alm1 $alm1)
     {
-        return view('Fichas.Monitoreo.Form1.resp', compact('form1') );
+        return view('Fichas.Almacen.Alm1.resp', compact('alm1') );
     }
 
     /**
@@ -185,13 +193,11 @@ class Alm1Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $form1 = Form1::find($id);
-        $form1->obs = $request->input('obs');
-        $form1->recomend = $request->input('recomend');
-        $form1->cmejora = $request->input('cmejora');
-        $form1->update();
+        $alm1 = Alm1::find($id);
+        $alm1->rec_cmejora = $request->input('rec_cmejora');
+        $alm1->update();
 
-        return redirect()->route('form1.index')->with('success','Enviado Correctamente');
+        return redirect()->route('alm1.index')->with('success','Enviado Correctamente');
     }
 
     /**
@@ -199,7 +205,7 @@ class Alm1Controller extends Controller
      */
     public function destroy(string $id)
     {
-        $form1->delete();
-        return redirect()->route('form1.index')->with('success','Enviado Correctamente');
+        $alm1->delete();
+        return redirect()->route('alm1.index')->with('success','Enviado Correctamente');
     }
 }

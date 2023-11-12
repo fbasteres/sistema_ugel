@@ -1,7 +1,7 @@
 <!--inicio navbar-->
 <nav class="px-3 py-2 bg-white navi">
         <p class="mb-0 text-navi fw-semibold" >
-        UGEL - UE 301
+            Hoy, {{ date('d')}}&nbsp;{{ date('M')}} de {{ date('Y') }}
         </p>
         <div class="d-flex align-items-center ms-auto liner">
             <hr>

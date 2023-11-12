@@ -773,7 +773,15 @@
     
     
 </div>
-
+@include('layouts.components.boton')
+<script>
+    document.querySelector('.go-top-container').addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
 <script src="{{asset('frontend/js/select2.js')}}"></script>
 
 

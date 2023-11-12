@@ -27,9 +27,21 @@ $(document).ready(function(){
         $('.sidebar-dropdown-menu').slideUp('fast')
         $('.sidebar-menu-item.has-dropdown > a, .sidebar-menu-item.has-dropdown > a').removeClass('focused') 
     })
+
     /*if(window.innerWidth < 780){
         $(.sidebar).addClass('collapsed')
     }*/
     //end sidebar
 })
+
+window.onscroll = function() {
+    if(document.documentElement.scrollTop > 100){
+        document.querySelector('.go-top-container')
+        .classList.add('show');
+    }else {
+        document.querySelector('.go-top-container')
+        .classList.remove('show');
+    }
+}
+
 

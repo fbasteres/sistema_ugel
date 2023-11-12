@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="col-md-3 pb-3">
-            <div class="car-inf-disabled align-items-center">
+            <div class="car-inf2 align-items-center">
                 <div class="d-flex justify-content-between align-items-start">
                     <h5>Total de fichas</h5>
                      <h1 class="text-end"> 0 </h1>
@@ -63,7 +63,8 @@
                     <i class="fa-solid fa-layer-group"></i>&nbsp;&nbsp;&nbsp;
                     <h6>Almacen</h6>
                 </div>
-                <h6>Ficha de supervisión y monitoreo del uso pedagógico de materiales educativos en la institución educativa.</h6>    
+                <h6>Ficha de supervisión y monitoreo del...</h6>
+                <h6 class="text-end pt-4 fichas-ver"><a href="{{ route('alm1.index') }}">Ver listado &nbsp;<i class="fa-solid fa-arrow-right-long"></i></a></h6>    
             </div>
         </div>
      

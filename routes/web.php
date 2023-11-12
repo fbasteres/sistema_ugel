@@ -8,6 +8,9 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Spatie\PermissionController;
+use App\Http\Controllers\Spatie\RolesController;
+use App\Http\Controllers\Auth\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +24,7 @@ use App\Http\Controllers\Home\HomeController;
 */
 
 
-Route::get('/register', [RegisterController::class, 'show']);
-Route::post('/register', [RegisterController::class, 'register'])
--> name ('registro');
+
 
 Route::get('/', [LoginController::class, 'show']);
 
@@ -31,18 +32,25 @@ Route::get('/login', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'login'])
 -> name ('login');
 
+
+
 Route::get('/logout', [LogoutController::class, 'logout'])
 ->name ('cerrar_sesion');
 
 
 
-Route::get('/estadistica',[HomeController::class, 'index'])-> name ('inicio');
+Route::get('/dashboard',[HomeController::class, 'index'])-> name ('inicio');
 
 Route::get('/power-bi', function () {
     return view('pages.powerbi');
 })-> name ('power');
 
-/* CRUD Formularios */
+/* Configuraciones */
+Route::resource('users', UserController::class) -> names ('users');
+Route::resource('permissions', PermissionController::class) -> names ('permissions');
+Route::resource('roles', RolesController::class) -> names ('roles');
+
+/* Formularios */
 Route::resource('form1', Form1Controller::class) -> names ('form1');
 //Route::resource('form2', Form2Controller::class) -> names ('form2');
 Route::resource('form3', Form3Controller::class) -> names ('form3');

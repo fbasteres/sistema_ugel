@@ -159,7 +159,7 @@ body {
     color: var(--bs-white);
     background-color: var(--paragon-violeta);
     border-width: 0;
-    padding: .5rem 3rem;
+    padding: .5rem 1.6rem;
     font-size: .9rem;
     font-weight: 500; 
     border-radius: .3rem;
@@ -311,6 +311,50 @@ body {
     padding: 2rem;
     height: 100%;
 }
+
+/* Show configuraciones */
+.card_datos {
+    border-radius: 0.5rem;
+    box-shadow: rgba(176, 192, 202, 0.2) 0 0.2rem 1rem -.2rem;
+    background-color: var(--bs-white);
+    padding: 2rem;
+    height: 100%;
+}
+
+.card_datos input {
+    background-color: var(--bs-gray-100);
+}
+
+.card_datos h6{
+    font-size: .9rem;
+}
+
+.card_datos-migajas>h6{
+    color: var(--primary-color);
+    font-size: .9rem;
+}
+.card_datos>p{
+    margin: 0;
+    font-size: .7rem;
+}
+.card_datos img{
+    padding-top: 1rem;
+    width: 4rem;
+}
+.card_datos span {
+    font-size: .7rem;
+}
+.no-permitido {
+    padding: 0;
+    color: #ae1400;
+    font-size: .7rem;
+}
+
+.rol_view {
+    margin: 0;
+    color: var(--finalizado);
+}
+/* Fin Show configuraciones */
 .car-inf h5{
     color: var(--primary-color);
     font-size: 1.2rem;
@@ -770,5 +814,69 @@ nav{
 /*Fin breakpoint*/
  /*Fin navbar*/
 
+
+/* Incio boton-top */
+
+.go-top-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 2rem;
+    height: 2rem;
+    z-index: -1;
+}
+
+.go-top-button {
+    width: 0;
+    height: 0;
+    background: var(--nuevo-bg);
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: .2s;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.go-top-button i{
+    position: absolute;
+    font-size: 1.5rem;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: var(--nuevo);
+    transition: .2s;
+}
+
+.show {
+    z-index: 10;
+}
+
+.show .go-top-button {
+    animation: popup .3s ease-in-out;
+    width: 3.2rem;
+    height: 3.2rem;
+    z-index: 11;
+}
+
+.show .ic{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+@keyframes popup {
+    0% {
+        width: 0rem;
+        height: 0rem;
+    }
+    50% {
+        width: 4.2rem;
+        height: 4.2rem;
+    }
+    100% {
+        width: 3.2rem;
+        height: 3.2rem;
+    }
+}
+/* Fin boton-top */
 /*fin main*/
 
