@@ -14,7 +14,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('Conf-permisos'), redirect()->route('inicio'));
+        abort_if(Gate::denies('conf-permisos'), redirect()->route('inicio'));
         $permissions = Permission::all();
         return view('auth.Spatie.Permissions.index', compact ('permissions'));
         
@@ -25,7 +25,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        abort_if(Gate::denies('Conf-permisos'), redirect()->route('inicio'));
+        abort_if(Gate::denies('conf-permisos'), redirect()->route('inicio'));
         return view('auth.Spatie.Permissions.create');
     }
 
@@ -34,7 +34,7 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        abort_if(Gate::denies('Conf-permisos'), redirect()->route('inicio'));
+        abort_if(Gate::denies('conf-permisos'), redirect()->route('inicio'));
         Permission::create($request->only('name'));
         return redirect()->route('permissions.index')->with('success','Creado Correctamente');
     }
@@ -44,7 +44,7 @@ class PermissionController extends Controller
      */
     public function show(Permission $permission)
     {
-        abort_if(Gate::denies('Conf-permisos'), redirect()->route('inicio'));
+        abort_if(Gate::denies('conf-permisos'), redirect()->route('inicio'));
         return view('auth.Spatie.Permissions.show', compact ('permission'));
     }
 
@@ -53,7 +53,7 @@ class PermissionController extends Controller
      */
     public function edit(Permission $permission)
     {
-        abort_if(Gate::denies('Conf-permisos'), redirect()->route('inicio'));
+        abort_if(Gate::denies('conf-permisos'), redirect()->route('inicio'));
         return view('auth.Spatie.Permissions.edit', compact ('permission'));
     }
 

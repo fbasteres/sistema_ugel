@@ -13,7 +13,7 @@
                 </li>
                 <li class="sidebar-menu-divider text-uppercase">Componentes</li>
                 <hr class="sidebar-menu-divider-hr">
-                @can('Configuracion')
+                @can('configuracion')
                 <li class="sidebar-menu-item pt-1 has-dropdown">
                     <a href="#">
                     <i class="fa-solid fa-gear sidebar-menu-item-icon"></i>
@@ -21,17 +21,17 @@
                     <i class="fa-solid fa-chevron-down sidebar-menu-item-accordion ms-auto"></i>
                     </a>
                     <ul class="sidebar-dropdown-menu">
-                        @can('Conf-users')
+                        @can('conf-users')
                         <li class="sidebar-dropdown-menu-item">
                             <a href="{{ route('users.index') }}">Perfil de Usuarios</a>
                         </li>
                         @endcan
-                        @can('Conf-permisos')
+                        @can('conf-permisos')
                         <li class="sidebar-dropdown-menu-item">
                             <a href="{{ route('permissions.index') }}">Permisos</a>
                         </li>
                         @endcan
-                        @can('Conf-roles')
+                        @can('conf-roles')
                         <li class="sidebar-dropdown-menu-item">
                             <a href="{{ route('roles.index') }}">Roles</a>
                         </li> 
@@ -40,7 +40,7 @@
                     </ul>
                 </li>
                 @endcan
-                    @can ('Fichas')
+                    @can ('fichas')
                     <li class="sidebar-menu-item pt-1 has-dropdown">
                         <a href="#">
                         <i class="fa-solid fa-layer-group sidebar-menu-item-icon"></i>
@@ -65,7 +65,7 @@
                     </li>
                     @endcan
                     
-                    @can('Power-bi')
+                    @can('power-bi')
                     <li class="sidebar-menu-item pt-1 {{ 'power-bi' == request()->path() ? 'active' : '' }}">
                         <a href="{{ route ('power') }}">
                         <i class="fa-solid fa-chart-simple sidebar-menu-item-icon"></i>
@@ -74,7 +74,7 @@
                     </li>
                     @endcan
                     
-                    @can('Fichas-reportes')
+                    @can('fichas-reportes')
                     <li class="sidebar-menu-item pt-1 {{ 'report' == request()->path() ? 'active' : '' }}">
                         <a href="">
                         <i class="fa-solid fa-database sidebar-menu-item-icon"></i>
@@ -82,7 +82,7 @@
                         </a>
                     </li>   
                     @endcan
-                    @can('Ayuda')
+                    @can('ayuda')
                     <li class="sidebar-menu-item pt-1 has-dropdown">
                         <a href="#">
                         <i class="fa-solid fa-circle-question sidebar-menu-item-icon"></i>
