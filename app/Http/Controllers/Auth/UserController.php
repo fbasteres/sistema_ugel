@@ -21,7 +21,7 @@ class UserController extends Controller
 
      public function index()
     {
-        abort_if(Gate::denies('conf-users'), redirect()->route('inicio'));
+        //abort_if(Gate::denies('conf-users'), redirect()->route('inicio'));
         $users = User::all();
         return view('auth.Users.index', compact ('users'));
     }
@@ -31,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        abort_if(Gate::denies('conf-users'), redirect()->route('inicio'));
+        //abort_if(Gate::denies('conf-users'), redirect()->route('inicio'));
         $roles = Role::all()->pluck('name','id');
         return view('auth.Users.create', compact('roles'));
     }
@@ -41,7 +41,7 @@ class UserController extends Controller
      */
     public function store(RegisterRequest $request)
     {
-        abort_if(Gate::denies('conf-users'), redirect()->route('inicio'));
+        //abort_if(Gate::denies('conf-users'), redirect()->route('inicio'));
         $user = User::create($request->validated());
 
         $roles = $request->roles;
@@ -55,7 +55,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        abort_if(Gate::denies('conf-users'), redirect()->route('inicio'));
+        //abort_if(Gate::denies('conf-users'), redirect()->route('inicio'));
         $user->load('roles');
         return view('auth.Users.show', compact ('user'));
     }
@@ -65,7 +65,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        abort_if(Gate::denies('conf-users'), redirect()->route('inicio'));
+        //abort_if(Gate::denies('conf-users'), redirect()->route('inicio'));
         $roles = Role::all()->pluck('name','id');
         $user->load('roles');
         return view('auth.Users.edit', compact ('user','roles'));
