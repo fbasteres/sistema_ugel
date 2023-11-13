@@ -5,12 +5,14 @@
         <i class="sidebar-toggle fa-solid fa-arrow-left ms-auto fs-5 d-none d-md-block"></i>
     </div>
             <ul class="sidebar-menu m-0 mb-0">
+                @can('dashboard')
                 <li class="sidebar-menu-item {{ 'dashboard' == request()->path() ? 'active' : '' }}">
                     <a href="{{ route ('inicio') }}">
                     <i class="fa-brands fa-slack sidebar-menu-item-icon"></i>
                         Dashboard
                     </a>
-                </li>
+                </li>   
+                @endcan
                 <li class="sidebar-menu-divider text-uppercase">Componentes</li>
                 <hr class="sidebar-menu-divider-hr">
                 @can('configuracion')
