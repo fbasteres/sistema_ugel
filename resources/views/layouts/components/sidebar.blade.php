@@ -62,15 +62,17 @@
                         </ul>
                     </li>
                     
-                    @if (auth()->user()->can('power-bi'))
+                    @can('power-bi')
                     <li class="sidebar-menu-item pt-1 {{ 'power-bi' == request()->path() ? 'active' : '' }}">
                         <a href="{{ route ('power') }}">
                         <i class="fa-solid fa-chart-simple sidebar-menu-item-icon"></i>
                             Power BI
                         </a>
-                    </li> 
-                    @endif
+                    </li>  
+                    @endcan
                     
+                   
+                        
                     
                     
 
