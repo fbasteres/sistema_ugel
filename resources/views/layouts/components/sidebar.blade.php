@@ -13,7 +13,7 @@
                 </li>
                 <li class="sidebar-menu-divider text-uppercase">Componentes</li>
                 <hr class="sidebar-menu-divider-hr">
-                
+                @can('configuracion')
                 <li class="sidebar-menu-item pt-1 has-dropdown">
                     <a href="#">
                     <i class="fa-solid fa-gear sidebar-menu-item-icon"></i>
@@ -37,6 +37,8 @@
                         
                     </ul>
                 </li>
+                @endcan
+                
 
                    
                     <li class="sidebar-menu-item pt-1 has-dropdown">
