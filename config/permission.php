@@ -128,7 +128,7 @@ return [
      * When set to true the package will use Passports Client to check permissions
      */
 
-    'use_passport_client_credentials' => false,
+    'use_passport_client_credentials' => true,
 
     /*
      * When set to true, the required permission names are added to exception messages.
@@ -136,7 +136,7 @@ return [
      * setting is false here for optimum safety.
      */
 
-    'display_permission_in_exception' => false,
+    'display_permission_in_exception' => true,
 
     /*
      * When set to true, the required role names are added to exception messages.
@@ -144,14 +144,14 @@ return [
      * setting is false here for optimum safety.
      */
 
-    'display_role_in_exception' => false,
+    'display_role_in_exception' => true,
 
     /*
      * By default wildcard permission lookups are disabled.
      * See documentation to understand supported syntax.
      */
 
-    'enable_wildcard_permission' => false,
+    'enable_wildcard_permission' => true,
 
     /*
      * The class to use for interpreting wildcard permissions.
@@ -182,6 +182,6 @@ return [
          * file. Using 'default' here means to use the `default` set in cache.php.
          */
 
-        'store' => 'default',
+        'store' => 'array',
     ],
 ];
