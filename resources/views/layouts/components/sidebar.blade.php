@@ -38,60 +38,60 @@
                     </ul>
                 </li>
                 @endcan
-                
-
-                   
-                    <li class="sidebar-menu-item pt-1 has-dropdown">
-                        <a href="#">
-                        <i class="fa-solid fa-layer-group sidebar-menu-item-icon"></i>
-                            Fichas
-                        <i class="fa-solid fa-chevron-down sidebar-menu-item-accordion ms-auto"></i>
-                        </a>
-                        
-                        <ul class="sidebar-dropdown-menu">
-                            <li class="sidebar-dropdown-menu-item">
-                                <a href="{{route ('alm1.create')}}">Almacen 1</a>
-                            </li>
-                            <li class="sidebar-dropdown-menu-item">
-                                <a href="{{route ('form1.create')}}">Ficha 1 - 1</a>
-                            </li>
-                            <li class="sidebar-dropdown-menu-item">
-                                <a href="">Ficha 2 - 1</a>
-                            </li>
-                            <li class="sidebar-dropdown-menu-item">
-                                <a href="{{route ('form3.create')}}">Ficha 3 - 1</a>
-                            </li>
-                        </ul>
-                    </li>
+                @can('fichas')
+                <li class="sidebar-menu-item pt-1 has-dropdown">
+                    <a href="#">
+                    <i class="fa-solid fa-layer-group sidebar-menu-item-icon"></i>
+                        Fichas
+                    <i class="fa-solid fa-chevron-down sidebar-menu-item-accordion ms-auto"></i>
+                    </a>
                     
-                    @can('power-bi')
+                    <ul class="sidebar-dropdown-menu">
+                        <li class="sidebar-dropdown-menu-item">
+                            <a href="{{route ('alm1.create')}}">Almacen 1</a>
+                        </li>
+                        <li class="sidebar-dropdown-menu-item">
+                            <a href="{{route ('form1.create')}}">Ficha 1 - 1</a>
+                        </li>
+                        <li class="sidebar-dropdown-menu-item">
+                            <a href="">Ficha 2 - 1</a>
+                        </li>
+                        <li class="sidebar-dropdown-menu-item">
+                            <a href="{{route ('form3.create')}}">Ficha 3 - 1</a>
+                        </li>
+                    </ul>
+                </li>
+                @endcan
+                    
+                    
+                @can('power-bi')
                     <li class="sidebar-menu-item pt-1 {{ 'power-bi' == request()->path() ? 'active' : '' }}">
                         <a href="{{ route ('power') }}">
                         <i class="fa-solid fa-chart-simple sidebar-menu-item-icon"></i>
                             Power BI
                         </a>
                     </li>  
-                    @endcan
+                 @endcan
                     
-                   
-                        
+                @can('fichas-reportes')
+                <li class="sidebar-menu-item pt-1 {{ 'report' == request()->path() ? 'active' : '' }}">
+                    <a href="">
+                    <i class="fa-solid fa-database sidebar-menu-item-icon"></i>
+                        Reportes
+                    </a>
+                </li>   
+                @endcan
+                @can('ayuda')
+                <li class="sidebar-menu-item pt-1 has-dropdown">
+                    <a href="#">
+                    <i class="fa-solid fa-circle-question sidebar-menu-item-icon"></i>
+                        Centro de ayuda
+                    </a>
                     
-                    
+                </li> 
+                @endcan     
 
-                    <li class="sidebar-menu-item pt-1 {{ 'report' == request()->path() ? 'active' : '' }}">
-                        <a href="">
-                        <i class="fa-solid fa-database sidebar-menu-item-icon"></i>
-                            Reportes
-                        </a>
-                    </li>   
-
-                    <li class="sidebar-menu-item pt-1 has-dropdown">
-                        <a href="#">
-                        <i class="fa-solid fa-circle-question sidebar-menu-item-icon"></i>
-                            Centro de ayuda
-                        </a>
-                        
-                    </li>
+                    
 
                     
             </ul>

@@ -15,7 +15,7 @@ class RolesController extends Controller
      */
     public function index()
     {
-        //abort_if(Gate::denies('conf-roles'), redirect()->route('inicio'));
+        abort_if(Gate::denies('conf-roles'), redirect()->route('inicio'));
         $roles = Role::all();
         return view('auth.Spatie.Roles.index', compact ('roles'));
     }
@@ -25,7 +25,7 @@ class RolesController extends Controller
      */
     public function create()
     {
-        //abort_if(Gate::denies('conf-roles'), redirect()->route('inicio'));
+        abort_if(Gate::denies('conf-roles'), redirect()->route('inicio'));
         $permissions = Permission::all()->pluck('name','id');
         return view('auth.Spatie.Roles.create', compact ('permissions'));
     }
@@ -35,7 +35,7 @@ class RolesController extends Controller
      */
     public function store(Request $request)
     {
-        //abort_if(Gate::denies('conf-roles'), redirect()->route('inicio'));
+        abort_if(Gate::denies('conf-roles'), redirect()->route('inicio'));
         $role = Role::create($request->only('name'));
         $role->permissions()->sync($request-> input('permissions',[]));
         return redirect()->route('roles.index')->with('success','Creado Correctamente');
@@ -46,7 +46,7 @@ class RolesController extends Controller
      */
     public function show(Role $role)
     {
-        //abort_if(Gate::denies('conf-roles'), redirect()->route('inicio'));
+        abort_if(Gate::denies('conf-roles'), redirect()->route('inicio'));
         $role->load('permissions');
         return view('auth.Spatie.Roles.show', compact ('role'));
     }
@@ -56,7 +56,7 @@ class RolesController extends Controller
      */
     public function edit(Role $role)
     {
-        //abort_if(Gate::denies('conf-roles'), redirect()->route('inicio'));
+        abort_if(Gate::denies('conf-roles'), redirect()->route('inicio'));
         $permissions = Permission::all()->pluck('name','id');
         $role->load('permissions');
         return view('auth.Spatie.Roles.edit', compact ('role', 'permissions'));
