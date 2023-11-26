@@ -33,7 +33,6 @@
                                         <h6 class="rol_view">{{ $role->name }}</h6>
                                     @empty
                                         <h6>Sin rol</h6>
-                                    
                                     @endforelse
                                 </div>
                                 <h4 class=" fw-semibold" >{{ $user->name }} {{ $user->last_name }}</h4>

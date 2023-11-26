@@ -4,17 +4,17 @@
 <title>Paragon+ | Almacén 1 </title>
 <div class="container-fluid px-4 pb-5">
     <div class="py-3">
-        <a href="{{ route('inicio') }}" class="href-closed">
+        <a href="{{ route('reporte') }}" class="href-closed">
             <button class="btn-closed d-flex">
                     <i class="fa-solid fa-arrow-left"></i>&nbsp; &nbsp;
-                    <h6>Dashboard</h6> 
+                    <h6>Atrás</h6> 
             </button>        
         </a>
     </div>
     <div class="container">
         @include('layouts.partials.messages')
         <div class="car-inf">
-            <span class="badge rounded-pill sp-atendido">Almacen 1</span>
+            <span class="badge rounded-pill sp-finalizado">Reporte</span>&nbsp;&nbsp;<span class="badge rounded-pill sp-atendido">Almacen 1</span>
             <h5 class="m-0">Ficha de supervisión y monitoreo
                 del uso pedagógico de materiales educativos en la institución educativa.</h5>
             <p class="m-0 pb-2">Muestra el total de los registros, del usuario que inicio sesión.</p>

@@ -23,20 +23,21 @@
                     <i class="fa-solid fa-chevron-down sidebar-menu-item-accordion ms-auto"></i>
                     </a>
                     <ul class="sidebar-dropdown-menu">
-
+                        @can('conf-users')
                         <li class="sidebar-dropdown-menu-item">
                             <a href="{{ route('users.index') }}">Perfil de Usuarios</a>
-                        </li>
-
+                        </li>   
+                        @endcan
+                        @can('conf-permisos')
                         <li class="sidebar-dropdown-menu-item">
                             <a href="{{ route('permissions.index') }}">Permisos</a>
-                        </li>
-
+                        </li>    
+                        @endcan
+                        @can('conf-roles')
                         <li class="sidebar-dropdown-menu-item">
                             <a href="{{ route('roles.index') }}">Roles</a>
                         </li> 
-
-                        
+                        @endcan
                     </ul>
                 </li>
                 @endcan
@@ -76,8 +77,8 @@
                  @endcan
                     
                 @can('fichas-reportes')
-                <li class="sidebar-menu-item pt-1 {{ 'report' == request()->path() ? 'active' : '' }}">
-                    <a href="">
+                <li class="sidebar-menu-item pt-1 {{ 'reporte' == request()->path() ? 'active' : '' }}">
+                    <a href="{{ route('reporte') }}">
                     <i class="fa-solid fa-database sidebar-menu-item-icon"></i>
                         Reportes
                     </a>

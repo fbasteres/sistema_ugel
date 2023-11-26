@@ -39,7 +39,7 @@ class Form1Controller extends Controller
     public function reporte()
     {
         $formulario1 = Form1::with('iedu')->get();
-        return view('Fichas.Monitoreo.Form1.index', compact ('formulario1'));
+        return view('Fichas.Monitoreo.Form1.reporte', compact ('formulario1'));
     }
 
     /**

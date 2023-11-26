@@ -37,10 +37,10 @@ class Form3Controller extends Controller
 
     public function reporte()
     {
-        //$totalForm1 = Form1::where('user_id')->count();
         $formulario3 = Form3::with('iedu')->get();
-        return view('Fichas.Monitoreo.Form1.index', compact ('formulario3'));
+        return view('Fichas.Monitoreo.Form3.reporte', compact ('formulario3'));
     }
+
 
     /**
      * Show the form for creating a new resource.

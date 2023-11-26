@@ -4,7 +4,8 @@
 <title>Paragon+ | Dashboard </title>
 
 <div class="container pt-4">
-    <h3 class="pb-4 fw-semibold">Dashboard</h3>
+    <h3 class="fw-semibold">Dashboard</h3>
+    <h6 class="pb-4 text-muted">Muestra el total de los registros de formularios, registrados por el usuario que inicio sesión.</h6>
     <div class="row align-items-md-stretch">
         <div class="col-md-3 pb-3">
             <div class="car-inf2 align-items-center">
@@ -56,7 +57,7 @@
             <div class="car-inf2 align-items-center">
                 <div class="d-flex justify-content-between align-items-start">
                     <h5>Total de fichas</h5>
-                     <h1 class="text-end"> 0 </h1>
+                     <h1 class="text-end"> {{ $totalAlm1 }} </h1>
                 </div>
                 <br>
                 <div class="d-flex">

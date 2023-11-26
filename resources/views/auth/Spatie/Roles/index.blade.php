@@ -12,9 +12,7 @@
                 </button>        
             </a>
         </div>
-    </div>
-        
-            
+    </div>  
   
     <div class="d-flex container pb-3">
         <div class="ms-auto">

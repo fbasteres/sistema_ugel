@@ -1,22 +1,22 @@
 @include ('layouts.style')
 @extends('layouts.master')
 @section('content')
-<title>Paragon+ | Ficha 1 - 1 </title>
+<title>Paragon+ | Reporte-Ficha 1 - 1 </title>
 <div class="container-fluid px-4 pb-5">
     <div class="py-3">
-        <a href="{{ route('inicio') }}" class="href-closed">
+        <a href="{{ route('reporte') }}" class="href-closed">
             <button class="btn-closed d-flex">
                     <i class="fa-solid fa-arrow-left"></i>&nbsp; &nbsp;
-                    <h6>Dashboard</h6> 
+                    <h6>Atrás</h6> 
             </button>        
         </a>
     </div>
     <div class="container">
         @include('layouts.partials.messages')
         <div class="car-inf">
-            <span class="badge rounded-pill sp-atendido">Ficha 1-1</span>
+            <span class="badge rounded-pill sp-finalizado">Reporte</span>&nbsp;&nbsp;<span class="badge rounded-pill sp-atendido">Ficha 1-1</span>
             <h5 class="m-0">Ficha de monitoreo</h5>
-            <p class="m-0 pb-2">Muestra el total de los registros, del usuario que inicio sesión.</p>
+            <p class="m-0 pb-2">Muestra el total de los registros.</p>
             <hr class="m-0 pb-5">
             <table id="tabla_usuario" class="table table" style="width:100%">
                 <thead>
@@ -89,7 +89,7 @@
                         <th>Código</th>
                         <th>N° DNI</th>
                         <th>Apellidos y Nombres</th>
-                        <th>institución</th>
+                        <th>Institución</th>
                         <th>Fecha</th>
                         <th>Resultado PA</th>
                         <th>Resultado UD</th>

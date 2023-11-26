@@ -15,6 +15,8 @@ use App\Models\Iedu;
 use App\Models\Grado;
 use App\Models\Seccion;
 use App\Models\Turno;
+use Spatie\Permission\Models\Role;
+use App\Models\User;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class Alm1Controller extends Controller
@@ -24,24 +26,26 @@ class Alm1Controller extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(User $user)
     {
+        $user->load('roles');
         $foalm1 = Alm1::where('user_id', Auth::id())-> with('iedu')->get();
-        //$formulario1 = alm1::with('iedu')->get();
-        return view('Fichas.Almacen.Alm1.index', compact ('foalm1'));
+        return view('Fichas.Almacen.Alm1.index', compact ('foalm1','user'));
+    }
+    public function reporte(User $user)
+    {
+        $user->load('roles');
+        $foalm1 = Alm1::with('iedu')->get();
+        return view('Fichas.Almacen.Alm1.reporte', compact ('foalm1','user'));
     }
 
-    public function reporte()
-    {
-        $formulario1 = alm1::with('iedu')->get();
-        return view('Fichas.Monitoreo.alm1.index', compact ('formulario1'));
-    }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(User $user)
     {
+        $user->load('roles');
         $departamentos = Departamentos::all();
         $provincias = Provincias::all();
         $distritos = Distritos::all();
@@ -60,6 +64,7 @@ class Alm1Controller extends Controller
             'grado' => $grado,
             'seccion' => $seccion,
             'turno' => $turno,
+            'user' => $user
         ]);
     }
 
@@ -174,18 +179,24 @@ class Alm1Controller extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Alm1 $alm1)
+    public function show(Alm1 $alm1, User $user)
     {
+        $user->load('roles');
         $educa = Iedu::all();
-        return view('Fichas.Almacen.Alm1.show', compact('alm1','educa'));
+        return view('Fichas.Almacen.Alm1.show', [
+            'alm1' => $alm1,
+            'educa' => $educa,
+            'user' => $user
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Alm1 $alm1)
+    public function edit(Alm1 $alm1, User $user)
     {
-        return view('Fichas.Almacen.Alm1.resp', compact('alm1') );
+        $user->load('roles');
+        return view('Fichas.Almacen.Alm1.resp', compact('alm1','user') );
     }
 
     /**
