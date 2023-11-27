@@ -1,7 +1,7 @@
 @include ('layouts.style')
 @extends('layouts.master')
 @section('content')
-<title>Paragon+ | Reporte-Ficha 1 - 3 </title>
+<title>Paragon+ | Reporte-Ficha 1 - 1 </title>
 <div class="container-fluid px-4 pb-5">
     <div class="py-3">
         <a href="{{ route('reporte') }}" class="href-closed">
@@ -14,7 +14,7 @@
     <div class="container">
         @include('layouts.partials.messages')
         <div class="car-inf">
-            <span class="badge rounded-pill sp-finalizado">Reporte</span>&nbsp;&nbsp;<span class="badge rounded-pill sp-atendido">Ficha 1-3</span>
+            <span class="badge rounded-pill sp-finalizado">Reporte</span>&nbsp;&nbsp;<span class="badge rounded-pill sp-atendido">Ficha 1-1</span>
             <h5 class="m-0">Ficha de monitoreo</h5>
             <p class="m-0 pb-2">Muestra el total de los registros.</p>
             <hr class="m-0 pb-5">
@@ -26,36 +26,36 @@
                         <th>Apellidos y Nombres</th>
                         <th>institución</th>
                         <th>Fecha</th>
-                        <th>Res. PA</th>
-                        <th>Res. UD</th>
+                        <th>Resultado PA</th>
+                        <th>Resultado UD</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($formulario3 as $formulario)
+                    @foreach ($formulario1 as $formulario)
                     <tr>
-                        <td>{{ $formulario['cod_form'] }}</td>
+                        <td>{{ $formulario['cod_form']}}</td>
                         <td>{{ $formulario['nro_dni']}}</td>
                         <td>{{ $formulario['last_name']}} {{ $formulario['name']}}</td>
                         <td>{{ $formulario->iedu->cod_mod }} {{ $formulario->iedu->name}}</td>
                         <td>{{ $formulario['fecha']}}</td>
                         <td>
-                            <?php
-                                    switch ( true ) {
-                                        case (  $formulario->rsta_1 >= 0 &&  $formulario->rsta_1 <= 2):
-                                            echo '<span class="badge sp-finalizado">Necesita mejorar</span>';
-                                            break;
-                                        case (  $formulario->rsta_1 >= 3 &&  $formulario->rsta_1 <= 4):
-                                            echo '<span class="badge sp-naranja">En proceso</span>';
-                                            break;
-                                        case (  $formulario->rsta_1 >= 5 &&  $formulario->rsta_1 <= 7):
-                                            echo '<span class="badge sp-nuevo">Suficiente</span>';
-                                            break;
-                                        case (  $formulario->rsta_1 >= 8 &&  $formulario->rsta_1 <= 10):
-                                            echo '<span class="badge sp-atendido">Destacado</span>';
-                                            break;
-                                    }
-                            ?>
+                        @switch(true)
+                                @case($formulario->ense_resultado >= 15 &&  $formulario->ense_resultado <= 22)
+                                    <span class="badge sp-finalizado">Necesita mejorar</span>
+                                    @break
+                                @case($formulario->ense_resultado >= 23 &&  $formulario->ense_resultado <= 37)
+                                    <span class="badge sp-naranja">En proceso</span>    
+                                    @break
+                                @case($formulario->ense_resultado >= 38 &&  $formulario->ense_resultado <= 50)
+                                    <span class="badge sp-nuevo">Suficiente</span>
+                                    @break
+                                @case($formulario->ense_resultado >= 51 &&  $formulario->ense_resultado <= 60)
+                                    <span class="badge sp-atendido">Destacado</span>
+                                    @break
+                                @default
+                                    
+                            @endswitch
                         </td>
                         <td>
                             <?php
@@ -76,7 +76,7 @@
                             ?>
                         </td>
                         <td>
-                            <a href="{{route ('form3.show', $formulario -> id )}}" class="btn btn-acciones">
+                            <a href="{{route ('form1.show', $formulario -> id )}}" class="btn btn-acciones">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
                             
@@ -91,8 +91,8 @@
                         <th>Apellidos y Nombres</th>
                         <th>Institución</th>
                         <th>Fecha</th>
-                        <th>Res. PA</th>
-                        <th>Res. UD</th>
+                        <th>Resultado PA</th>
+                        <th>Resultado UD</th>
                         <th>Acciones</th>
                     </tr>
                 </tfoot>

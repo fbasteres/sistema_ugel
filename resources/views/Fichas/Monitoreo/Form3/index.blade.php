@@ -26,8 +26,8 @@
                         <th>Apellidos y Nombres</th>
                         <th>institución</th>
                         <th>Fecha</th>
-                        <th>Resultado PA</th>
-                        <th>Resultado UD</th>
+                        <th>Res. PA</th>
+                        <th>Res. UD</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -91,8 +91,8 @@
                         <th>Apellidos y Nombres</th>
                         <th>Institución</th>
                         <th>Fecha</th>
-                        <th>Resultado PA</th>
-                        <th>Resultado UD</th>
+                        <th>Res. PA</th>
+                        <th>Res. UD</th>
                         <th>Acciones</th>
                     </tr>
                 </tfoot>

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Form\Form1;
+use App\Models\Form\Form2;
 use App\Models\Form\Form3;
 use App\Models\Alm\Alm1;
 use Spatie\Permission\Models\Role;
@@ -23,11 +24,13 @@ class HomeController extends Controller
     {
         $user->load('roles');
         $totalForm1 = Form1::where('user_id', Auth::id())->count();
+        $totalForm2 = Form2::where('user_id', Auth::id())->count();
         $totalForm3 = Form3::where('user_id', Auth::id())->count();
         $totalAlm1 = Alm1::where('user_id', Auth::id())->count();
         
         return view('dashboard',[
             'totalForm1' => $totalForm1,
+            'totalForm2'  => $totalForm2,
             'totalForm3' => $totalForm3,
             'totalAlm1'  => $totalAlm1,
             'user' => $user
@@ -37,10 +40,12 @@ class HomeController extends Controller
     {
         abort_if(Gate::denies('fichas-reportes'), redirect()->route('inicio'));
         $totalForm1 = Form1::count('id');
+        $totalForm2 = Form2::count('id');
         $totalForm3 = Form3::count('id');
         $totalAlm1 = Alm1::count('id');
         return view('pages.report', [
             'totalForm1' => $totalForm1,
+            'totalForm2' => $totalForm2,
             'totalForm3' => $totalForm3,
             'totalAlm1'  => $totalAlm1
         ]);

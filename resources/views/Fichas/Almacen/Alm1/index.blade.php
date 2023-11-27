@@ -39,7 +39,7 @@
                         <td>{{ $foalm['dr_lastname'] }} {{ $foalm['dr_name'] }}</td>
                         <td>{{ $foalm['doc_lastname'] }} {{ $foalm['doc_name'] }}</td>
                         <td>{{ $foalm['fecha']}}</td>
-                        <td>{{ $foalm->iedu }} {{ $foalm->iedu->name}}</td>
+                        <td><b>{{ $foalm->iedu->cod_mod }}</b> {{ $foalm->iedu->name}}</td>
                         <td>
                             <a href="{{route ('alm1.show', $foalm -> id )}}" class="btn btn-acciones">
                                 <i class="fa-solid fa-eye"></i>

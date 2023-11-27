@@ -55,7 +55,7 @@ return new class extends Migration
             $table->boolean('vpa_pre9');
             $table->text('vpa_coment_pre9')->nullable();
             $table->boolean('vpa_pre10');
-            $table->text('vpa_coment_pre10')->nullable();
+            $table->text('vpa_coment_pre10')->nullable(); 
             $table->boolean('vpa_pre11');
             $table->text('vpa_coment_pre11')->nullable();
             $table->boolean('vpa_pre12');

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Form\Form1Controller;
+use App\Http\Controllers\Form\Form2Controller;
 use App\Http\Controllers\Form\Form3Controller;
 use App\Http\Controllers\Alm\Alm1Controller;
 use App\Http\Controllers\Auth\RegisterController;

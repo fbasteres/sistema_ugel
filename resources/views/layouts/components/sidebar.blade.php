@@ -57,7 +57,7 @@
                             <a href="{{route ('form1.create')}}">Ficha 1 - 1</a>
                         </li>
                         <li class="sidebar-dropdown-menu-item">
-                            <a href="">Ficha 2 - 1</a>
+                            <a href="{{ route ('form2.create') }}">Ficha 2 - 1</a>
                         </li>
                         <li class="sidebar-dropdown-menu-item">
                             <a href="{{route ('form3.create')}}">Ficha 3 - 1</a>

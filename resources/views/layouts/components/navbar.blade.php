@@ -6,7 +6,10 @@
         <div class="d-flex align-items-center ms-auto liner">
             <hr>
             <div class="align-items-center pe-4">
-                <p class=" m-0">Hola, <b>{{ auth()->user()->name}}</b></p>
+                <div class="d-flex">
+                    <p class="m-0">Hola, </p>
+                    <p class="m-0 fw-semibold"> &nbsp;{{ auth()->user()->name}}</p>
+                </div>
                 <div>
                     @forelse (auth()->user()->roles as $role)
                         <p class="m-0 fw-semibold" style="font-size: .8rem;color:#5b36f2;">{{ $role->name }}</p>
