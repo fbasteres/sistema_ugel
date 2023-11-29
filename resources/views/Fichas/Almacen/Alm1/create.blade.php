@@ -87,10 +87,10 @@
                             <p class="m-0 pt-4 pb-2 fw-semibold">Datos del especialista</p>
                             
                             <div class="col-4 car-form">
-                                <input type="text" class="form-control" name="es_lastname" placeholder="Apellidos" required>
+                                <input type="text" class="form-control" name="es_lastname" placeholder="Apellidos">
                             </div>
                             <div class="col-4 car-form">
-                                <input type="text" class="form-control" name="es_name" placeholder="Nombres" required>
+                                <input type="text" class="form-control" name="es_name" placeholder="Nombres" >
                             </div>
                             
 
@@ -180,14 +180,14 @@
                             <label for="password" class="form-label">1.- Ha recibido en el presente año los 
                                 cuadernos de trabajo de la dotación 2023</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <div class="form-check text-end">
-                                <input class="form-check-input" type="radio" name="rmaed_pre1" value="1" required >
+                                <input class="form-check-input" type="radio" name="rmaed_pre1" value="1"  >
                                 <label class="form-check-label" for="rmaed_pre1">
                                     Si
                                 </label>
                             </div>
                             &nbsp;&nbsp;
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="rmaed_pre1" value="0" required>
+                                <input class="form-check-input" type="radio" name="rmaed_pre1" value="0" >
                                 <label class="form-check-label" for="rmaed_pre1">
                                     No
                                 </label>

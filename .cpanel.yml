@@ -12,4 +12,3 @@ deployment:
     - 
     - /bin/cp -R storage $DEPLOYPATH
     - /bin/cp -R vendor $DEPLOYPATH
-    - #/bin/cp  .env $DEPLOYPATH

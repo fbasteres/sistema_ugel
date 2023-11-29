@@ -23,8 +23,8 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => 'required',
-            'password' => 'required'
+            'username' => 'Usuario es requerido',
+            'password' => 'Contraseña es requerido'
         ];
     }
 
