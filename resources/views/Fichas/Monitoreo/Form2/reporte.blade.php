@@ -32,7 +32,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($formulario1 as $formulario)
+                    @foreach ($formulario2 as $formulario)
                     <tr>
                         <td>{{ $formulario['cod_form']}}</td>
                         <td>{{ $formulario['nro_dni']}}</td>

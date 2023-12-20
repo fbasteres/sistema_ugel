@@ -26,7 +26,7 @@
             <i class="fa-solid fa-angle-down"></i>
             </button>
             <ul class="dropdown-menu mt-3 shadow">
-                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-fingerprint"></i>&nbsp Cambiar contraseña</a></li>
+                <li><a class="dropdown-item" href="{{ route('password.edit')}}"><i class="fa-solid fa-fingerprint"></i>&nbsp Cambiar contraseña</a></li>
                 <li><a class="dropdown-item" href="{{ route('cerrar_sesion') }}"><i class="fa-solid fa-arrow-right-to-bracket"></i>&nbsp Cerrar sesión</a></li>
             </ul>
         </div>

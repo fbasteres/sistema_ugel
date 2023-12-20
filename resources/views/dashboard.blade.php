@@ -4,6 +4,7 @@
 <title>Paragon+ | Dashboard </title>
 
 <div class="container pt-4">
+    @include('layouts.partials.messages')
     <h3 class="fw-semibold">Dashboard</h3>
     <h6 class="pb-4 text-muted">Muestra el total de los registros de formularios, registrados por el usuario que inicio sesión.</h6>
     <div class="row align-items-md-stretch">

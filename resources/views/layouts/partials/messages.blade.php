@@ -6,7 +6,6 @@
             @endforeach
         </ul>
     </div>
-    
 @endif
 
 @if (Session::get('success', false))
@@ -20,7 +19,7 @@
         @endforeach
     
     @else
-        <div class="alert alert-success">
+        <div class="alert alert-danger">
             <i class="fa fa-check"></i>
             {{ $data }}
         </div>

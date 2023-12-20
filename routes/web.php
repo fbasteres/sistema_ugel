@@ -12,6 +12,7 @@ use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Spatie\PermissionController;
 use App\Http\Controllers\Spatie\RolesController;
 use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\Auth\PasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,10 @@ Route::get('/reporte',[HomeController::class, 'reporte'])-> name ('reporte');
 Route::get('/power-bi', function () {
     return view('pages.powerbi');
 })-> name ('power');
+
+/* Password */
+Route::get('/newpassword', [PasswordController::class, 'newpass'])-> name ('password.edit');
+Route::post('/change/password', [PasswordController::class, 'changepass']) -> name('password.change');
 
 /* Configuraciones */
 Route::resource('users', UserController::class) -> names ('users');

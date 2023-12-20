@@ -1,7 +1,7 @@
 @include ('layouts.style')
 @extends('layouts.master')
 @section('content')
-<title>Paragon+ | detalles del permiso</title>
+<title>Paragon+ | detalles usuario</title>
 <div class="container-fluid px-4 pb-5">
   <div class="d-flex py-3">
     <div class="">
