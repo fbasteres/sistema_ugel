@@ -21,6 +21,7 @@
 
 
 .fichas-ver>a{
+    
     text-decoration: none;
     color: var(--primary-color);
     transition: padding-right 0.3s;
