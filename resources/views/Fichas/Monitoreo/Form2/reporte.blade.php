@@ -76,7 +76,7 @@
                             ?>
                         </td>
                         <td>
-                            <a href="{{route ('form1.show', $formulario -> id )}}" class="btn btn-acciones">
+                            <a href="{{route ('form2.show', $formulario -> id )}}" class="btn btn-acciones">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
                             

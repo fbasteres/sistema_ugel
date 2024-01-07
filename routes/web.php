@@ -65,7 +65,7 @@ Route::resource('alm1', Alm1Controller::class) -> names ('alm1');
 
 /* Reporte Formularios */
 Route::get('form/reporte1',[Form1Controller::class, 'reporte'])-> name ('form1.reporte');
-Route::get('form/reporte2',[Form3Controller::class, 'reporte'])-> name ('form2.reporte');
+Route::get('form/reporte2',[Form2Controller::class, 'reporte'])-> name ('form2.reporte');
 Route::get('form/reporte3',[Form3Controller::class, 'reporte'])-> name ('form3.reporte');
 Route::get('almacen/reporte1',[Alm1Controller::class, 'reporte'])-> name ('almacen1.reporte');
 
