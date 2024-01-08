@@ -38,6 +38,7 @@ Route::post('/login', [LoginController::class, 'login'])
 
 Route::get('/logout', [LogoutController::class, 'logout'])
 ->name ('cerrar_sesion');
+//Hola
 
 
 
