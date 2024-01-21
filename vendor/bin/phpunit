@@ -119,9 +119,4 @@ if (PHP_VERSION_ID < 80000) {
     }
 }
 
-
-if (__FILE__ === realpath($_SERVER['SCRIPT_NAME'])) {
-    $_SERVER['SCRIPT_NAME'] = realpath(__DIR__ . '/..'.'/phpunit/phpunit/phpunit');
-}
-
 return include __DIR__ . '/..'.'/phpunit/phpunit/phpunit';
